@@ -1,0 +1,9 @@
+{
+"packagePath":"idcheckio-php-client",
+"apiPackage":"api",
+"invokerPackage":"invoker",
+"modelPackage":"model",
+"artifactVersion":"1.0.0",
+"gitRepoId":"php-IDCHECKIO",
+"gitUserId":"ariadnext"
+}
