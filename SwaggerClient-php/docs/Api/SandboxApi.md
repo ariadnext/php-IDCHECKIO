@@ -1,4 +1,4 @@
-# com.ariadnext.idcheckio.invoker\SandboxApi
+# invoker\SandboxApi
 
 All URIs are relative to *https://localhost/rest*
 
@@ -22,7 +22,7 @@ GET image
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new com.ariadnext.idcheckio.invoker\Api\SandboxApi();
+$api_instance = new invoker\Api\SandboxApi();
 $image_uid = "image_uid_example"; // string | EnumDemoDocsImage
 $raw_type = "raw_type_example"; // string | Image raw type
 $face = "face_example"; // string | Image face
@@ -62,7 +62,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getImageList**
-> \com.ariadnext.idcheckio.model\ImageListResponse getImageList()
+> \model\ImageListResponse getImageList()
 
 HTTP GET images list
 
@@ -73,7 +73,7 @@ GET images list
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new com.ariadnext.idcheckio.invoker\Api\SandboxApi();
+$api_instance = new invoker\Api\SandboxApi();
 
 try {
     $result = $api_instance->getImageList();
@@ -89,7 +89,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\com.ariadnext.idcheckio.model\ImageListResponse**](../Model/ImageListResponse.md)
+[**\model\ImageListResponse**](../Model/ImageListResponse.md)
 
 ### Authorization
 
@@ -103,7 +103,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMrz**
-> \com.ariadnext.idcheckio.model\MrzResponse getMrz($mrz_uid)
+> \model\MrzResponse getMrz($mrz_uid)
 
 HTTP GET mrz
 
@@ -114,7 +114,7 @@ GET mrz
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new com.ariadnext.idcheckio.invoker\Api\SandboxApi();
+$api_instance = new invoker\Api\SandboxApi();
 $mrz_uid = "mrz_uid_example"; // string | EnumDemoDocsMrz
 
 try {
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.ariadnext.idcheckio.model\MrzResponse**](../Model/MrzResponse.md)
+[**\model\MrzResponse**](../Model/MrzResponse.md)
 
 ### Authorization
 
@@ -148,7 +148,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMrzList**
-> \com.ariadnext.idcheckio.model\MrzListResponse getMrzList()
+> \model\MrzListResponse getMrzList()
 
 HTTP GET mrz list
 
@@ -159,7 +159,7 @@ GET mrz list
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new com.ariadnext.idcheckio.invoker\Api\SandboxApi();
+$api_instance = new invoker\Api\SandboxApi();
 
 try {
     $result = $api_instance->getMrzList();
@@ -175,7 +175,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\com.ariadnext.idcheckio.model\MrzListResponse**](../Model/MrzListResponse.md)
+[**\model\MrzListResponse**](../Model/MrzListResponse.md)
 
 ### Authorization
 

@@ -1,11 +1,11 @@
 <?php
 /**
- * ClassificationOfTheSubmittedDocument
+ * MrzListResponse
  *
  * PHP version 5
  *
  * @category Class
- * @package  com.ariadnext.idcheckio.invoker
+ * @package  invoker
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,34 +39,34 @@
  * Do not edit the class manually.
  */
 
-namespace com.ariadnext.idcheckio.model;
+namespace model;
 
 use \ArrayAccess;
 
 /**
- * ClassificationOfTheSubmittedDocument Class Doc Comment
+ * MrzListResponse Class Doc Comment
  *
  * @category    Class */
 /** 
- * @package     com.ariadnext.idcheckio.invoker
+ * @package     invoker
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ClassificationOfTheSubmittedDocument implements ArrayAccess
+class MrzListResponse implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'Classification of the submitted document';
+    protected static $swaggerModelName = 'MrzListResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'id_type' => 'string'
+        'mrz' => 'string[]'
     );
 
     public static function swaggerTypes()
@@ -79,7 +79,7 @@ class ClassificationOfTheSubmittedDocument implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'id_type' => 'idType'
+        'mrz' => 'mrz'
     );
 
     public static function attributeMap()
@@ -92,7 +92,7 @@ class ClassificationOfTheSubmittedDocument implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'id_type' => 'setIdType'
+        'mrz' => 'setMrz'
     );
 
     public static function setters()
@@ -105,7 +105,7 @@ class ClassificationOfTheSubmittedDocument implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'id_type' => 'getIdType'
+        'mrz' => 'getMrz'
     );
 
     public static function getters()
@@ -113,30 +113,8 @@ class ClassificationOfTheSubmittedDocument implements ArrayAccess
         return self::$getters;
     }
 
-    const ID_TYPE_ID = 'ID';
-    const ID_TYPE_P = 'P';
-    const ID_TYPE_RP = 'RP';
-    const ID_TYPE_V = 'V';
-    const ID_TYPE_DL = 'DL';
-    const ID_TYPE_UNKNOWN = 'UNKNOWN';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getIdTypeAllowableValues()
-    {
-        return [
-            self::ID_TYPE_ID,
-            self::ID_TYPE_P,
-            self::ID_TYPE_RP,
-            self::ID_TYPE_V,
-            self::ID_TYPE_DL,
-            self::ID_TYPE_UNKNOWN,
-        ];
-    }
     
 
     /**
@@ -151,7 +129,7 @@ class ClassificationOfTheSubmittedDocument implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id_type'] = isset($data['id_type']) ? $data['id_type'] : null;
+        $this->container['mrz'] = isset($data['mrz']) ? $data['mrz'] : null;
     }
 
     /**
@@ -162,11 +140,6 @@ class ClassificationOfTheSubmittedDocument implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array("ID", "P", "RP", "V", "DL", "UNKNOWN");
-        if (!in_array($this->container['id_type'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'id_type', must be one of #{allowed_values}.";
-        }
-
         return $invalid_properties;
     }
 
@@ -178,35 +151,27 @@ class ClassificationOfTheSubmittedDocument implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array("ID", "P", "RP", "V", "DL", "UNKNOWN");
-        if (!in_array($this->container['id_type'], $allowed_values)) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets id_type
-     * @return string
+     * Gets mrz
+     * @return string[]
      */
-    public function getIdType()
+    public function getMrz()
     {
-        return $this->container['id_type'];
+        return $this->container['mrz'];
     }
 
     /**
-     * Sets id_type
-     * @param string $id_type identity document type
+     * Sets mrz
+     * @param string[] $mrz get mrz list object
      * @return $this
      */
-    public function setIdType($id_type)
+    public function setMrz($mrz)
     {
-        $allowed_values = array('ID', 'P', 'RP', 'V', 'DL', 'UNKNOWN');
-        if (!in_array($id_type, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'id_type', must be one of 'ID', 'P', 'RP', 'V', 'DL', 'UNKNOWN'");
-        }
-        $this->container['id_type'] = $id_type;
+        $this->container['mrz'] = $mrz;
 
         return $this;
     }
@@ -262,10 +227,10 @@ class ClassificationOfTheSubmittedDocument implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

@@ -1,4 +1,4 @@
-# com.ariadnext.idcheckio.invoker\AdministrationApi
+# invoker\AdministrationApi
 
 All URIs are relative to *https://localhost/rest*
 
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **getHealth**
-> \com.ariadnext.idcheckio.model\HealthResponse getHealth()
+> \model\HealthResponse getHealth()
 
 HTTP GET health
 
@@ -20,7 +20,7 @@ GET server health (OK 200)
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new com.ariadnext.idcheckio.invoker\Api\AdministrationApi();
+$api_instance = new invoker\Api\AdministrationApi();
 
 try {
     $result = $api_instance->getHealth();
@@ -36,7 +36,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\com.ariadnext.idcheckio.model\HealthResponse**](../Model/HealthResponse.md)
+[**\model\HealthResponse**](../Model/HealthResponse.md)
 
 ### Authorization
 
@@ -50,7 +50,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUser**
-> \com.ariadnext.idcheckio.model\UserResponse getUser($accept_language)
+> \model\UserResponse getUser($accept_language)
 
 HTTP GET user
 
@@ -62,10 +62,10 @@ Get user informations
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-com.ariadnext.idcheckio.invoker\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-com.ariadnext.idcheckio.invoker\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+invoker\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+invoker\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
 
-$api_instance = new com.ariadnext.idcheckio.invoker\Api\AdministrationApi();
+$api_instance = new invoker\Api\AdministrationApi();
 $accept_language = "accept_language_example"; // string | Accept language header
 
 try {
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.ariadnext.idcheckio.model\UserResponse**](../Model/UserResponse.md)
+[**\model\UserResponse**](../Model/UserResponse.md)
 
 ### Authorization
 

@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  com.ariadnext.idcheckio.invoker
+ * @package  invoker
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -38,31 +38,43 @@
  * Please update the test case below to test the endpoint.
  */
 
-namespace com.ariadnext.idcheckio.invoker;
+namespace invoker;
 
-use \com.ariadnext.idcheckio.invoker\Configuration;
-use \com.ariadnext.idcheckio.invoker\ApiClient;
-use \com.ariadnext.idcheckio.invoker\ApiException;
-use \com.ariadnext.idcheckio.invoker\ObjectSerializer;
+use invoker\Configuration;
+use invoker\ApiClient;
+use invoker\ApiException;
+//use invoker\ObjectSerializer;
+use api\AdministrationApi;
+
+require_once(__DIR__ . '/vendor/autoload.php');
 
 /**
  * AdministrationApiTest Class Doc Comment
  *
  * @category Class
- * @package  com.ariadnext.idcheckio.invoker
+ * @package  invoker
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class AdministrationApiTest extends \PHPUnit_Framework_TestCase
 {
-
+    private static $apiClient;
+    private static $apiAdmin;
     /**
      * Setup before running any test cases
      */
     public static function setUpBeforeClass()
     {
-
+        //print_r("setUp\n");
+        $config = (new Configuration())->setHost('https://idcheckio.rennes.ariadnext.com:9443/rest')
+                ->setSSLVerification(FALSE)
+                ->setUserAgent("AXT Test")
+                ->setPassword("exemple@")
+                ->setUsername("ariadnext.exemple@ariadnext.com");
+        global $apiClient;
+        $apiClient = new ApiClient($config);
+         
     }
 
     /**
@@ -97,7 +109,16 @@ class AdministrationApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetHealth()
     {
-
+        //print_r("getHealth\n");
+        global $apiClient;
+        
+        $apiAdmin = (new AdministrationApi())->setApiClient($apiClient);
+        try {
+           $healthResponse = $apiAdmin->getHealth();
+        } catch (ApiException $ex) {
+            $this->fail($ex);
+        }
+        $this->assertSame('OK', $healthResponse->getStatus());
     }
 
     /**
@@ -108,7 +129,16 @@ class AdministrationApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetUser()
     {
-
+        //print_r("getUser\n");
+        global $apiClient;
+        
+        $apiAdmin = (new AdministrationApi())->setApiClient($apiClient);
+        try {
+           $userResponse = $apiAdmin->getUser();
+        } catch (ApiException $ex) {
+            $this->fail($ex);
+        }
+        $this->assertInternalType("int", $userResponse->getRemainingCredits());
     }
 
 }

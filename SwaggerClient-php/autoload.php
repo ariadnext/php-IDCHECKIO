@@ -26,10 +26,10 @@
  * An example of a project-specific implementation.
  *
  * After registering this autoload function with SPL, the following line
- * would cause the function to attempt to load the \com.ariadnext.idcheckio.invoker\Baz\Qux class
+ * would cause the function to attempt to load the \invoker\Baz\Qux class
  * from /path/to/project/lib/Baz/Qux.php:
  *
- *      new \com.ariadnext.idcheckio.invoker\Baz\Qux;
+ *      new \invoker\Baz\Qux;
  *
  * @param string $class The fully-qualified class name.
  *
@@ -38,7 +38,7 @@
 spl_autoload_register(function ($class) {
 
     // project-specific namespace prefix
-    $prefix = 'com.ariadnext.idcheckio.invoker\\';
+    $prefix = 'invoker\\';
 
     // base directory for the namespace prefix
     $base_dir = __DIR__ . '/lib/';

@@ -1,11 +1,11 @@
 <?php
 /**
- * Control
+ * ErrorResponse
  *
  * PHP version 5
  *
  * @category Class
- * @package  com.ariadnext.idcheckio.invoker
+ * @package  invoker
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,37 +39,34 @@
  * Do not edit the class manually.
  */
 
-namespace com.ariadnext.idcheckio.model;
+namespace model;
 
 use \ArrayAccess;
 
 /**
- * Control Class Doc Comment
+ * ErrorResponse Class Doc Comment
  *
  * @category    Class */
 /** 
- * @package     com.ariadnext.idcheckio.invoker
+ * @package     invoker
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class Control implements ArrayAccess
+class ErrorResponse implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'Control';
+    protected static $swaggerModelName = 'ErrorResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'identifier' => 'string',
-        'title_msg' => 'string',
-        'result_msg' => 'string',
-        'result' => 'string'
+        'error_message' => 'string'
     );
 
     public static function swaggerTypes()
@@ -82,10 +79,7 @@ class Control implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'identifier' => 'identifier',
-        'title_msg' => 'titleMsg',
-        'result_msg' => 'resultMsg',
-        'result' => 'result'
+        'error_message' => 'errorMessage'
     );
 
     public static function attributeMap()
@@ -98,10 +92,7 @@ class Control implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'identifier' => 'setIdentifier',
-        'title_msg' => 'setTitleMsg',
-        'result_msg' => 'setResultMsg',
-        'result' => 'setResult'
+        'error_message' => 'setErrorMessage'
     );
 
     public static function setters()
@@ -114,10 +105,7 @@ class Control implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'identifier' => 'getIdentifier',
-        'title_msg' => 'getTitleMsg',
-        'result_msg' => 'getResultMsg',
-        'result' => 'getResult'
+        'error_message' => 'getErrorMessage'
     );
 
     public static function getters()
@@ -125,26 +113,8 @@ class Control implements ArrayAccess
         return self::$getters;
     }
 
-    const RESULT_NONE = 'NONE';
-    const RESULT_OK = 'OK';
-    const RESULT_WARNING = 'WARNING';
-    const RESULT_ERROR = 'ERROR';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getResultAllowableValues()
-    {
-        return [
-            self::RESULT_NONE,
-            self::RESULT_OK,
-            self::RESULT_WARNING,
-            self::RESULT_ERROR,
-        ];
-    }
     
 
     /**
@@ -159,10 +129,7 @@ class Control implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['identifier'] = isset($data['identifier']) ? $data['identifier'] : null;
-        $this->container['title_msg'] = isset($data['title_msg']) ? $data['title_msg'] : null;
-        $this->container['result_msg'] = isset($data['result_msg']) ? $data['result_msg'] : null;
-        $this->container['result'] = isset($data['result']) ? $data['result'] : null;
+        $this->container['error_message'] = isset($data['error_message']) ? $data['error_message'] : null;
     }
 
     /**
@@ -173,11 +140,6 @@ class Control implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array("NONE", "OK", "WARNING", "ERROR");
-        if (!in_array($this->container['result'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'result', must be one of #{allowed_values}.";
-        }
-
         return $invalid_properties;
     }
 
@@ -189,98 +151,27 @@ class Control implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array("NONE", "OK", "WARNING", "ERROR");
-        if (!in_array($this->container['result'], $allowed_values)) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets identifier
+     * Gets error_message
      * @return string
      */
-    public function getIdentifier()
+    public function getErrorMessage()
     {
-        return $this->container['identifier'];
+        return $this->container['error_message'];
     }
 
     /**
-     * Sets identifier
-     * @param string $identifier control identifier
+     * Sets error_message
+     * @param string $error_message error message
      * @return $this
      */
-    public function setIdentifier($identifier)
+    public function setErrorMessage($error_message)
     {
-        $this->container['identifier'] = $identifier;
-
-        return $this;
-    }
-
-    /**
-     * Gets title_msg
-     * @return string
-     */
-    public function getTitleMsg()
-    {
-        return $this->container['title_msg'];
-    }
-
-    /**
-     * Sets title_msg
-     * @param string $title_msg title message
-     * @return $this
-     */
-    public function setTitleMsg($title_msg)
-    {
-        $this->container['title_msg'] = $title_msg;
-
-        return $this;
-    }
-
-    /**
-     * Gets result_msg
-     * @return string
-     */
-    public function getResultMsg()
-    {
-        return $this->container['result_msg'];
-    }
-
-    /**
-     * Sets result_msg
-     * @param string $result_msg result message
-     * @return $this
-     */
-    public function setResultMsg($result_msg)
-    {
-        $this->container['result_msg'] = $result_msg;
-
-        return $this;
-    }
-
-    /**
-     * Gets result
-     * @return string
-     */
-    public function getResult()
-    {
-        return $this->container['result'];
-    }
-
-    /**
-     * Sets result
-     * @param string $result result
-     * @return $this
-     */
-    public function setResult($result)
-    {
-        $allowed_values = array('NONE', 'OK', 'WARNING', 'ERROR');
-        if (!in_array($result, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'result', must be one of 'NONE', 'OK', 'WARNING', 'ERROR'");
-        }
-        $this->container['result'] = $result;
+        $this->container['error_message'] = $error_message;
 
         return $this;
     }
@@ -336,10 +227,10 @@ class Control implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

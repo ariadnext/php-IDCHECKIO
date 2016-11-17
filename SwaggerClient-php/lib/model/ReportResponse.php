@@ -1,11 +1,11 @@
 <?php
 /**
- * DetailedInformationOfTheSubmittedDocument
+ * ReportResponse
  *
  * PHP version 5
  *
  * @category Class
- * @package  com.ariadnext.idcheckio.invoker
+ * @package  invoker
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,38 +39,36 @@
  * Do not edit the class manually.
  */
 
-namespace com.ariadnext.idcheckio.model;
+namespace model;
 
 use \ArrayAccess;
 
 /**
- * DetailedInformationOfTheSubmittedDocument Class Doc Comment
+ * ReportResponse Class Doc Comment
  *
  * @category    Class */
 /** 
- * @package     com.ariadnext.idcheckio.invoker
+ * @package     invoker
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class DetailedInformationOfTheSubmittedDocument implements ArrayAccess
+class ReportResponse implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'Detailed information of the submitted document';
+    protected static $swaggerModelName = 'ReportResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'emit_country' => 'string',
-        'emit_date' => '\com.ariadnext.idcheckio.model\EventDate',
-        'expiration_date' => '\com.ariadnext.idcheckio.model\EventDate',
-        'document_number' => 'string',
-        'extra_infos' => '\com.ariadnext.idcheckio.model\GenericData[]'
+        'uid' => 'string',
+        'analysis_ref_uid' => 'string',
+        'report' => 'string'
     );
 
     public static function swaggerTypes()
@@ -83,11 +81,9 @@ class DetailedInformationOfTheSubmittedDocument implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'emit_country' => 'emitCountry',
-        'emit_date' => 'emitDate',
-        'expiration_date' => 'expirationDate',
-        'document_number' => 'documentNumber',
-        'extra_infos' => 'extraInfos'
+        'uid' => 'uid',
+        'analysis_ref_uid' => 'analysisRefUid',
+        'report' => 'report'
     );
 
     public static function attributeMap()
@@ -100,11 +96,9 @@ class DetailedInformationOfTheSubmittedDocument implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'emit_country' => 'setEmitCountry',
-        'emit_date' => 'setEmitDate',
-        'expiration_date' => 'setExpirationDate',
-        'document_number' => 'setDocumentNumber',
-        'extra_infos' => 'setExtraInfos'
+        'uid' => 'setUid',
+        'analysis_ref_uid' => 'setAnalysisRefUid',
+        'report' => 'setReport'
     );
 
     public static function setters()
@@ -117,11 +111,9 @@ class DetailedInformationOfTheSubmittedDocument implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'emit_country' => 'getEmitCountry',
-        'emit_date' => 'getEmitDate',
-        'expiration_date' => 'getExpirationDate',
-        'document_number' => 'getDocumentNumber',
-        'extra_infos' => 'getExtraInfos'
+        'uid' => 'getUid',
+        'analysis_ref_uid' => 'getAnalysisRefUid',
+        'report' => 'getReport'
     );
 
     public static function getters()
@@ -145,11 +137,9 @@ class DetailedInformationOfTheSubmittedDocument implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['emit_country'] = isset($data['emit_country']) ? $data['emit_country'] : null;
-        $this->container['emit_date'] = isset($data['emit_date']) ? $data['emit_date'] : null;
-        $this->container['expiration_date'] = isset($data['expiration_date']) ? $data['expiration_date'] : null;
-        $this->container['document_number'] = isset($data['document_number']) ? $data['document_number'] : null;
-        $this->container['extra_infos'] = isset($data['extra_infos']) ? $data['extra_infos'] : null;
+        $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
+        $this->container['analysis_ref_uid'] = isset($data['analysis_ref_uid']) ? $data['analysis_ref_uid'] : null;
+        $this->container['report'] = isset($data['report']) ? $data['report'] : null;
     }
 
     /**
@@ -160,6 +150,12 @@ class DetailedInformationOfTheSubmittedDocument implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if ($this->container['uid'] === null) {
+            $invalid_properties[] = "'uid' can't be null";
+        }
+        if ($this->container['analysis_ref_uid'] === null) {
+            $invalid_properties[] = "'analysis_ref_uid' can't be null";
+        }
         return $invalid_properties;
     }
 
@@ -171,111 +167,75 @@ class DetailedInformationOfTheSubmittedDocument implements ArrayAccess
      */
     public function valid()
     {
+        if ($this->container['uid'] === null) {
+            return false;
+        }
+        if ($this->container['analysis_ref_uid'] === null) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets emit_country
+     * Gets uid
      * @return string
      */
-    public function getEmitCountry()
+    public function getUid()
     {
-        return $this->container['emit_country'];
+        return $this->container['uid'];
     }
 
     /**
-     * Sets emit_country
-     * @param string $emit_country emit country
+     * Sets uid
+     * @param string $uid uid
      * @return $this
      */
-    public function setEmitCountry($emit_country)
+    public function setUid($uid)
     {
-        $this->container['emit_country'] = $emit_country;
+        $this->container['uid'] = $uid;
 
         return $this;
     }
 
     /**
-     * Gets emit_date
-     * @return \com.ariadnext.idcheckio.model\EventDate
-     */
-    public function getEmitDate()
-    {
-        return $this->container['emit_date'];
-    }
-
-    /**
-     * Sets emit_date
-     * @param \com.ariadnext.idcheckio.model\EventDate $emit_date
-     * @return $this
-     */
-    public function setEmitDate($emit_date)
-    {
-        $this->container['emit_date'] = $emit_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets expiration_date
-     * @return \com.ariadnext.idcheckio.model\EventDate
-     */
-    public function getExpirationDate()
-    {
-        return $this->container['expiration_date'];
-    }
-
-    /**
-     * Sets expiration_date
-     * @param \com.ariadnext.idcheckio.model\EventDate $expiration_date
-     * @return $this
-     */
-    public function setExpirationDate($expiration_date)
-    {
-        $this->container['expiration_date'] = $expiration_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets document_number
+     * Gets analysis_ref_uid
      * @return string
      */
-    public function getDocumentNumber()
+    public function getAnalysisRefUid()
     {
-        return $this->container['document_number'];
+        return $this->container['analysis_ref_uid'];
     }
 
     /**
-     * Sets document_number
-     * @param string $document_number document number
+     * Sets analysis_ref_uid
+     * @param string $analysis_ref_uid analysisRefUid
      * @return $this
      */
-    public function setDocumentNumber($document_number)
+    public function setAnalysisRefUid($analysis_ref_uid)
     {
-        $this->container['document_number'] = $document_number;
+        $this->container['analysis_ref_uid'] = $analysis_ref_uid;
 
         return $this;
     }
 
     /**
-     * Gets extra_infos
-     * @return \com.ariadnext.idcheckio.model\GenericData[]
+     * Gets report
+     * @return string
      */
-    public function getExtraInfos()
+    public function getReport()
     {
-        return $this->container['extra_infos'];
+        return $this->container['report'];
     }
 
     /**
-     * Sets extra_infos
-     * @param \com.ariadnext.idcheckio.model\GenericData[] $extra_infos additional informations
+     * Sets report
+     * @param string $report Pdf report (base64 encoded)
      * @return $this
      */
-    public function setExtraInfos($extra_infos)
+    public function setReport($report)
     {
-        $this->container['extra_infos'] = $extra_infos;
+        $this->container['report'] = $report;
 
         return $this;
     }
@@ -331,10 +291,10 @@ class DetailedInformationOfTheSubmittedDocument implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

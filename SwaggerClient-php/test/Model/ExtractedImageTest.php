@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  com.ariadnext.idcheckio.invoker
+ * @package  invoker
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace com.ariadnext.idcheckio.invoker;
+namespace invoker;
 
 /**
  * ExtractedImageTest Class Doc Comment
@@ -47,7 +47,7 @@ namespace com.ariadnext.idcheckio.invoker;
  * @category    Class */
 // * @description ExtractedImage
 /**
- * @package     com.ariadnext.idcheckio.invoker
+ * @package     invoker
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen

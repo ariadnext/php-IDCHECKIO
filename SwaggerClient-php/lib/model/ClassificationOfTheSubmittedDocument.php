@@ -1,11 +1,11 @@
 <?php
 /**
- * ErrorResponse
+ * ClassificationOfTheSubmittedDocument
  *
  * PHP version 5
  *
  * @category Class
- * @package  com.ariadnext.idcheckio.invoker
+ * @package  invoker
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,34 +39,34 @@
  * Do not edit the class manually.
  */
 
-namespace com.ariadnext.idcheckio.model;
+namespace model;
 
 use \ArrayAccess;
 
 /**
- * ErrorResponse Class Doc Comment
+ * ClassificationOfTheSubmittedDocument Class Doc Comment
  *
  * @category    Class */
 /** 
- * @package     com.ariadnext.idcheckio.invoker
+ * @package     invoker
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ErrorResponse implements ArrayAccess
+class ClassificationOfTheSubmittedDocument implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ErrorResponse';
+    protected static $swaggerModelName = 'Classification of the submitted document';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'error_message' => 'string'
+        'id_type' => 'string'
     );
 
     public static function swaggerTypes()
@@ -79,7 +79,7 @@ class ErrorResponse implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'error_message' => 'errorMessage'
+        'id_type' => 'idType'
     );
 
     public static function attributeMap()
@@ -92,7 +92,7 @@ class ErrorResponse implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'error_message' => 'setErrorMessage'
+        'id_type' => 'setIdType'
     );
 
     public static function setters()
@@ -105,7 +105,7 @@ class ErrorResponse implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'error_message' => 'getErrorMessage'
+        'id_type' => 'getIdType'
     );
 
     public static function getters()
@@ -113,8 +113,30 @@ class ErrorResponse implements ArrayAccess
         return self::$getters;
     }
 
+    const ID_TYPE_ID = 'ID';
+    const ID_TYPE_P = 'P';
+    const ID_TYPE_RP = 'RP';
+    const ID_TYPE_V = 'V';
+    const ID_TYPE_DL = 'DL';
+    const ID_TYPE_UNKNOWN = 'UNKNOWN';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getIdTypeAllowableValues()
+    {
+        return [
+            self::ID_TYPE_ID,
+            self::ID_TYPE_P,
+            self::ID_TYPE_RP,
+            self::ID_TYPE_V,
+            self::ID_TYPE_DL,
+            self::ID_TYPE_UNKNOWN,
+        ];
+    }
     
 
     /**
@@ -129,7 +151,7 @@ class ErrorResponse implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['error_message'] = isset($data['error_message']) ? $data['error_message'] : null;
+        $this->container['id_type'] = isset($data['id_type']) ? $data['id_type'] : null;
     }
 
     /**
@@ -140,6 +162,11 @@ class ErrorResponse implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        $allowed_values = array("ID", "P", "RP", "V", "DL", "UNKNOWN");
+        if (!in_array($this->container['id_type'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'id_type', must be one of #{allowed_values}.";
+        }
+
         return $invalid_properties;
     }
 
@@ -151,27 +178,35 @@ class ErrorResponse implements ArrayAccess
      */
     public function valid()
     {
+        $allowed_values = array("ID", "P", "RP", "V", "DL", "UNKNOWN");
+        if (!in_array($this->container['id_type'], $allowed_values)) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets error_message
+     * Gets id_type
      * @return string
      */
-    public function getErrorMessage()
+    public function getIdType()
     {
-        return $this->container['error_message'];
+        return $this->container['id_type'];
     }
 
     /**
-     * Sets error_message
-     * @param string $error_message error message
+     * Sets id_type
+     * @param string $id_type identity document type
      * @return $this
      */
-    public function setErrorMessage($error_message)
+    public function setIdType($id_type)
     {
-        $this->container['error_message'] = $error_message;
+        $allowed_values = array('ID', 'P', 'RP', 'V', 'DL', 'UNKNOWN');
+        if (!in_array($id_type, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'id_type', must be one of 'ID', 'P', 'RP', 'V', 'DL', 'UNKNOWN'");
+        }
+        $this->container['id_type'] = $id_type;
 
         return $this;
     }
@@ -227,10 +262,10 @@ class ErrorResponse implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

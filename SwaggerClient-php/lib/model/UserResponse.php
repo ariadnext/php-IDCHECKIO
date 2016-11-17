@@ -1,11 +1,11 @@
 <?php
 /**
- * EventDate
+ * UserResponse
  *
  * PHP version 5
  *
  * @category Class
- * @package  com.ariadnext.idcheckio.invoker
+ * @package  invoker
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,36 +39,34 @@
  * Do not edit the class manually.
  */
 
-namespace com.ariadnext.idcheckio.model;
+namespace model;
 
 use \ArrayAccess;
 
 /**
- * EventDate Class Doc Comment
+ * UserResponse Class Doc Comment
  *
  * @category    Class */
 /** 
- * @package     com.ariadnext.idcheckio.invoker
+ * @package     invoker
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class EventDate implements ArrayAccess
+class UserResponse implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'event date';
+    protected static $swaggerModelName = 'UserResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'day' => 'int',
-        'month' => 'int',
-        'year' => 'int'
+        'remaining_credits' => 'int'
     );
 
     public static function swaggerTypes()
@@ -81,9 +79,7 @@ class EventDate implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'day' => 'day',
-        'month' => 'month',
-        'year' => 'year'
+        'remaining_credits' => 'remainingCredits'
     );
 
     public static function attributeMap()
@@ -96,9 +92,7 @@ class EventDate implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'day' => 'setDay',
-        'month' => 'setMonth',
-        'year' => 'setYear'
+        'remaining_credits' => 'setRemainingCredits'
     );
 
     public static function setters()
@@ -111,9 +105,7 @@ class EventDate implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'day' => 'getDay',
-        'month' => 'getMonth',
-        'year' => 'getYear'
+        'remaining_credits' => 'getRemainingCredits'
     );
 
     public static function getters()
@@ -137,9 +129,7 @@ class EventDate implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['day'] = isset($data['day']) ? $data['day'] : null;
-        $this->container['month'] = isset($data['month']) ? $data['month'] : null;
-        $this->container['year'] = isset($data['year']) ? $data['year'] : null;
+        $this->container['remaining_credits'] = isset($data['remaining_credits']) ? $data['remaining_credits'] : null;
     }
 
     /**
@@ -166,64 +156,22 @@ class EventDate implements ArrayAccess
 
 
     /**
-     * Gets day
+     * Gets remaining_credits
      * @return int
      */
-    public function getDay()
+    public function getRemainingCredits()
     {
-        return $this->container['day'];
+        return $this->container['remaining_credits'];
     }
 
     /**
-     * Sets day
-     * @param int $day day number of date
+     * Sets remaining_credits
+     * @param int $remaining_credits user remaining credit
      * @return $this
      */
-    public function setDay($day)
+    public function setRemainingCredits($remaining_credits)
     {
-        $this->container['day'] = $day;
-
-        return $this;
-    }
-
-    /**
-     * Gets month
-     * @return int
-     */
-    public function getMonth()
-    {
-        return $this->container['month'];
-    }
-
-    /**
-     * Sets month
-     * @param int $month month number of date
-     * @return $this
-     */
-    public function setMonth($month)
-    {
-        $this->container['month'] = $month;
-
-        return $this;
-    }
-
-    /**
-     * Gets year
-     * @return int
-     */
-    public function getYear()
-    {
-        return $this->container['year'];
-    }
-
-    /**
-     * Sets year
-     * @param int $year year of date
-     * @return $this
-     */
-    public function setYear($year)
-    {
-        $this->container['year'] = $year;
+        $this->container['remaining_credits'] = $remaining_credits;
 
         return $this;
     }
@@ -279,10 +227,10 @@ class EventDate implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

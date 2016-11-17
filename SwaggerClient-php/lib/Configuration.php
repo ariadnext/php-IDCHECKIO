@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  com.ariadnext.idcheckio.invoker
+ * @package  invoker
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -38,14 +38,14 @@
  * Do not edit the class manually.
  */
 
-namespace com.ariadnext.idcheckio.invoker;
+namespace invoker;
 
 /**
  * Configuration Class Doc Comment
  * PHP version 5
  *
  * @category Class
- * @package  com.ariadnext.idcheckio.invoker
+ * @package  invoker
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -93,7 +93,7 @@ class Configuration
     /**
      * The default instance of ApiClient
      *
-     * @var \com.ariadnext.idcheckio.invoker\ApiClient
+     * @var \invoker\ApiClient
      */
     protected $defaultHeaders = array();
 
@@ -519,7 +519,7 @@ class Configuration
      */
     public static function toDebugReport()
     {
-        $report  = 'PHP SDK (com.ariadnext.idcheckio.invoker) Debug Report:' . PHP_EOL;
+        $report  = 'PHP SDK (invoker) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . phpversion() . PHP_EOL;
         $report .= '    OpenAPI Spec Version: 0.0' . PHP_EOL;

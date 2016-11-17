@@ -1,11 +1,11 @@
 <?php
 /**
- * ControlGroup
+ * ExtractedImage
  *
  * PHP version 5
  *
  * @category Class
- * @package  com.ariadnext.idcheckio.invoker
+ * @package  invoker
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,38 +39,39 @@
  * Do not edit the class manually.
  */
 
-namespace com.ariadnext.idcheckio.model;
+namespace model;
 
 use \ArrayAccess;
 
 /**
- * ControlGroup Class Doc Comment
+ * ExtractedImage Class Doc Comment
  *
  * @category    Class */
 /** 
- * @package     com.ariadnext.idcheckio.invoker
+ * @package     invoker
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ControlGroup implements ArrayAccess
+class ExtractedImage implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ControlGroup';
+    protected static $swaggerModelName = 'ExtractedImage';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'identifier' => 'string',
-        'title_msg' => 'string',
-        'result_msg' => 'string',
-        'result' => 'string',
-        'control' => '\com.ariadnext.idcheckio.model\Control[]'
+        'type' => 'string',
+        'image_dl' => 'string[]',
+        'image_ir' => 'string[]',
+        'image_uv' => 'string[]',
+        'page' => 'int',
+        'indicators' => '\model\ImageIndicator[]'
     );
 
     public static function swaggerTypes()
@@ -83,11 +84,12 @@ class ControlGroup implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'identifier' => 'identifier',
-        'title_msg' => 'titleMsg',
-        'result_msg' => 'resultMsg',
-        'result' => 'result',
-        'control' => 'control'
+        'type' => 'type',
+        'image_dl' => 'imageDL',
+        'image_ir' => 'imageIR',
+        'image_uv' => 'imageUV',
+        'page' => 'page',
+        'indicators' => 'indicators'
     );
 
     public static function attributeMap()
@@ -100,11 +102,12 @@ class ControlGroup implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'identifier' => 'setIdentifier',
-        'title_msg' => 'setTitleMsg',
-        'result_msg' => 'setResultMsg',
-        'result' => 'setResult',
-        'control' => 'setControl'
+        'type' => 'setType',
+        'image_dl' => 'setImageDl',
+        'image_ir' => 'setImageIr',
+        'image_uv' => 'setImageUv',
+        'page' => 'setPage',
+        'indicators' => 'setIndicators'
     );
 
     public static function setters()
@@ -117,11 +120,12 @@ class ControlGroup implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'identifier' => 'getIdentifier',
-        'title_msg' => 'getTitleMsg',
-        'result_msg' => 'getResultMsg',
-        'result' => 'getResult',
-        'control' => 'getControl'
+        'type' => 'getType',
+        'image_dl' => 'getImageDl',
+        'image_ir' => 'getImageIr',
+        'image_uv' => 'getImageUv',
+        'page' => 'getPage',
+        'indicators' => 'getIndicators'
     );
 
     public static function getters()
@@ -129,10 +133,11 @@ class ControlGroup implements ArrayAccess
         return self::$getters;
     }
 
-    const RESULT_NONE = 'NONE';
-    const RESULT_OK = 'OK';
-    const RESULT_WARNING = 'WARNING';
-    const RESULT_ERROR = 'ERROR';
+    const TYPE_RECTO = 'CROPPED_RECTO';
+    const TYPE_VERSO = 'CROPPED_VERSO';
+    const TYPE_FACE = 'CROPPED_FACE';
+    const TYPE_SIGNATURE = 'CROPPED_SIGNATURE';
+    const TYPE_EMITTER_SIGNATURE = 'CROPPED_EMITTER_SIGNATURE';
     
 
     
@@ -140,13 +145,14 @@ class ControlGroup implements ArrayAccess
      * Gets allowable values of the enum
      * @return string[]
      */
-    public function getResultAllowableValues()
+    public function getTypeAllowableValues()
     {
         return [
-            self::RESULT_NONE,
-            self::RESULT_OK,
-            self::RESULT_WARNING,
-            self::RESULT_ERROR,
+            self::TYPE_RECTO,
+            self::TYPE_VERSO,
+            self::TYPE_FACE,
+            self::TYPE_SIGNATURE,
+            self::TYPE_EMITTER_SIGNATURE,
         ];
     }
     
@@ -163,11 +169,12 @@ class ControlGroup implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['identifier'] = isset($data['identifier']) ? $data['identifier'] : null;
-        $this->container['title_msg'] = isset($data['title_msg']) ? $data['title_msg'] : null;
-        $this->container['result_msg'] = isset($data['result_msg']) ? $data['result_msg'] : null;
-        $this->container['result'] = isset($data['result']) ? $data['result'] : null;
-        $this->container['control'] = isset($data['control']) ? $data['control'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['image_dl'] = isset($data['image_dl']) ? $data['image_dl'] : null;
+        $this->container['image_ir'] = isset($data['image_ir']) ? $data['image_ir'] : null;
+        $this->container['image_uv'] = isset($data['image_uv']) ? $data['image_uv'] : null;
+        $this->container['page'] = isset($data['page']) ? $data['page'] : null;
+        $this->container['indicators'] = isset($data['indicators']) ? $data['indicators'] : null;
     }
 
     /**
@@ -178,9 +185,12 @@ class ControlGroup implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array("NONE", "OK", "WARNING", "ERROR");
-        if (!in_array($this->container['result'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'result', must be one of #{allowed_values}.";
+        if ($this->container['type'] === null) {
+            $invalid_properties[] = "'type' can't be null";
+        }
+        $allowed_values = array("CROPPED_RECTO", "CROPPED_VERSO", "CROPPED_FACE", "CROPPED_SIGNATURE", "CROPPED_EMITTER_SIGNATURE");
+        if (!in_array($this->container['type'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'type', must be one of #{allowed_values}.";
         }
 
         return $invalid_properties;
@@ -194,8 +204,11 @@ class ControlGroup implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array("NONE", "OK", "WARNING", "ERROR");
-        if (!in_array($this->container['result'], $allowed_values)) {
+        if ($this->container['type'] === null) {
+            return false;
+        }
+        $allowed_values = array("CROPPED_RECTO", "CROPPED_VERSO", "CROPPED_FACE", "CROPPED_SIGNATURE", "CROPPED_EMITTER_SIGNATURE");
+        if (!in_array($this->container['type'], $allowed_values)) {
             return false;
         }
         return true;
@@ -203,110 +216,131 @@ class ControlGroup implements ArrayAccess
 
 
     /**
-     * Gets identifier
+     * Gets type
      * @return string
      */
-    public function getIdentifier()
+    public function getType()
     {
-        return $this->container['identifier'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets identifier
-     * @param string $identifier control group identifier
+     * Sets type
+     * @param string $type
      * @return $this
      */
-    public function setIdentifier($identifier)
+    public function setType($type)
     {
-        $this->container['identifier'] = $identifier;
-
-        return $this;
-    }
-
-    /**
-     * Gets title_msg
-     * @return string
-     */
-    public function getTitleMsg()
-    {
-        return $this->container['title_msg'];
-    }
-
-    /**
-     * Sets title_msg
-     * @param string $title_msg title message
-     * @return $this
-     */
-    public function setTitleMsg($title_msg)
-    {
-        $this->container['title_msg'] = $title_msg;
-
-        return $this;
-    }
-
-    /**
-     * Gets result_msg
-     * @return string
-     */
-    public function getResultMsg()
-    {
-        return $this->container['result_msg'];
-    }
-
-    /**
-     * Sets result_msg
-     * @param string $result_msg result message
-     * @return $this
-     */
-    public function setResultMsg($result_msg)
-    {
-        $this->container['result_msg'] = $result_msg;
-
-        return $this;
-    }
-
-    /**
-     * Gets result
-     * @return string
-     */
-    public function getResult()
-    {
-        return $this->container['result'];
-    }
-
-    /**
-     * Sets result
-     * @param string $result result
-     * @return $this
-     */
-    public function setResult($result)
-    {
-        $allowed_values = array('NONE', 'OK', 'WARNING', 'ERROR');
-        if (!in_array($result, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'result', must be one of 'NONE', 'OK', 'WARNING', 'ERROR'");
+        $allowed_values = array('CROPPED_RECTO', 'CROPPED_VERSO', 'CROPPED_FACE', 'CROPPED_SIGNATURE', 'CROPPED_EMITTER_SIGNATURE');
+        if (!in_array($type, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'type', must be one of 'CROPPED_RECTO', 'CROPPED_VERSO', 'CROPPED_FACE', 'CROPPED_SIGNATURE', 'CROPPED_EMITTER_SIGNATURE'");
         }
-        $this->container['result'] = $result;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets control
-     * @return \com.ariadnext.idcheckio.model\Control[]
+     * Gets image_dl
+     * @return string[]
      */
-    public function getControl()
+    public function getImageDl()
     {
-        return $this->container['control'];
+        return $this->container['image_dl'];
     }
 
     /**
-     * Sets control
-     * @param \com.ariadnext.idcheckio.model\Control[] $control control list
+     * Sets image_dl
+     * @param string[] $image_dl
      * @return $this
      */
-    public function setControl($control)
+    public function setImageDl($image_dl)
     {
-        $this->container['control'] = $control;
+        $this->container['image_dl'] = $image_dl;
+
+        return $this;
+    }
+
+    /**
+     * Gets image_ir
+     * @return string[]
+     */
+    public function getImageIr()
+    {
+        return $this->container['image_ir'];
+    }
+
+    /**
+     * Sets image_ir
+     * @param string[] $image_ir
+     * @return $this
+     */
+    public function setImageIr($image_ir)
+    {
+        $this->container['image_ir'] = $image_ir;
+
+        return $this;
+    }
+
+    /**
+     * Gets image_uv
+     * @return string[]
+     */
+    public function getImageUv()
+    {
+        return $this->container['image_uv'];
+    }
+
+    /**
+     * Sets image_uv
+     * @param string[] $image_uv
+     * @return $this
+     */
+    public function setImageUv($image_uv)
+    {
+        $this->container['image_uv'] = $image_uv;
+
+        return $this;
+    }
+
+    /**
+     * Gets page
+     * @return int
+     */
+    public function getPage()
+    {
+        return $this->container['page'];
+    }
+
+    /**
+     * Sets page
+     * @param int $page
+     * @return $this
+     */
+    public function setPage($page)
+    {
+        $this->container['page'] = $page;
+
+        return $this;
+    }
+
+    /**
+     * Gets indicators
+     * @return \model\ImageIndicator[]
+     */
+    public function getIndicators()
+    {
+        return $this->container['indicators'];
+    }
+
+    /**
+     * Sets indicators
+     * @param \model\ImageIndicator[] $indicators
+     * @return $this
+     */
+    public function setIndicators($indicators)
+    {
+        $this->container['indicators'] = $indicators;
 
         return $this;
     }
@@ -362,10 +396,10 @@ class ControlGroup implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

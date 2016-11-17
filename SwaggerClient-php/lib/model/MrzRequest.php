@@ -1,11 +1,11 @@
 <?php
 /**
- * GenericData
+ * MrzRequest
  *
  * PHP version 5
  *
  * @category Class
- * @package  com.ariadnext.idcheckio.invoker
+ * @package  invoker
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,36 +39,37 @@
  * Do not edit the class manually.
  */
 
-namespace com.ariadnext.idcheckio.model;
+namespace model;
 
 use \ArrayAccess;
 
 /**
- * GenericData Class Doc Comment
+ * MrzRequest Class Doc Comment
  *
  * @category    Class */
 /** 
- * @package     com.ariadnext.idcheckio.invoker
+ * @package     invoker
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class GenericData implements ArrayAccess
+class MrzRequest implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'GenericData';
+    protected static $swaggerModelName = 'MrzRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'data_key' => 'string',
-        'data_value' => 'string',
-        'title' => 'string'
+        'api_version' => 'string',
+        'line1' => 'string',
+        'line2' => 'string',
+        'line3' => 'string'
     );
 
     public static function swaggerTypes()
@@ -81,9 +82,10 @@ class GenericData implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'data_key' => 'dataKey',
-        'data_value' => 'dataValue',
-        'title' => 'title'
+        'api_version' => 'apiVersion',
+        'line1' => 'line1',
+        'line2' => 'line2',
+        'line3' => 'line3'
     );
 
     public static function attributeMap()
@@ -96,9 +98,10 @@ class GenericData implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'data_key' => 'setDataKey',
-        'data_value' => 'setDataValue',
-        'title' => 'setTitle'
+        'api_version' => 'setApiVersion',
+        'line1' => 'setLine1',
+        'line2' => 'setLine2',
+        'line3' => 'setLine3'
     );
 
     public static function setters()
@@ -111,9 +114,10 @@ class GenericData implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'data_key' => 'getDataKey',
-        'data_value' => 'getDataValue',
-        'title' => 'getTitle'
+        'api_version' => 'getApiVersion',
+        'line1' => 'getLine1',
+        'line2' => 'getLine2',
+        'line3' => 'getLine3'
     );
 
     public static function getters()
@@ -137,9 +141,10 @@ class GenericData implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['data_key'] = isset($data['data_key']) ? $data['data_key'] : null;
-        $this->container['data_value'] = isset($data['data_value']) ? $data['data_value'] : null;
-        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
+        $this->container['line1'] = isset($data['line1']) ? $data['line1'] : null;
+        $this->container['line2'] = isset($data['line2']) ? $data['line2'] : null;
+        $this->container['line3'] = isset($data['line3']) ? $data['line3'] : null;
     }
 
     /**
@@ -150,6 +155,9 @@ class GenericData implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if ($this->container['line1'] === null) {
+            $invalid_properties[] = "'line1' can't be null";
+        }
         return $invalid_properties;
     }
 
@@ -161,69 +169,93 @@ class GenericData implements ArrayAccess
      */
     public function valid()
     {
+        if ($this->container['line1'] === null) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets data_key
+     * Gets api_version
      * @return string
      */
-    public function getDataKey()
+    public function getApiVersion()
     {
-        return $this->container['data_key'];
+        return $this->container['api_version'];
     }
 
     /**
-     * Sets data_key
-     * @param string $data_key data key
+     * Sets api_version
+     * @param string $api_version API version (for backward compatibility purpose)
      * @return $this
      */
-    public function setDataKey($data_key)
+    public function setApiVersion($api_version)
     {
-        $this->container['data_key'] = $data_key;
+        $this->container['api_version'] = $api_version;
 
         return $this;
     }
 
     /**
-     * Gets data_value
+     * Gets line1
      * @return string
      */
-    public function getDataValue()
+    public function getLine1()
     {
-        return $this->container['data_value'];
+        return $this->container['line1'];
     }
 
     /**
-     * Sets data_value
-     * @param string $data_value data value
+     * Sets line1
+     * @param string $line1 ligne1 containing MRZ line number 1
      * @return $this
      */
-    public function setDataValue($data_value)
+    public function setLine1($line1)
     {
-        $this->container['data_value'] = $data_value;
+        $this->container['line1'] = $line1;
 
         return $this;
     }
 
     /**
-     * Gets title
+     * Gets line2
      * @return string
      */
-    public function getTitle()
+    public function getLine2()
     {
-        return $this->container['title'];
+        return $this->container['line2'];
     }
 
     /**
-     * Sets title
-     * @param string $title title
+     * Sets line2
+     * @param string $line2 ligne2 containing MRZ line number 2
      * @return $this
      */
-    public function setTitle($title)
+    public function setLine2($line2)
     {
-        $this->container['title'] = $title;
+        $this->container['line2'] = $line2;
+
+        return $this;
+    }
+
+    /**
+     * Gets line3
+     * @return string
+     */
+    public function getLine3()
+    {
+        return $this->container['line3'];
+    }
+
+    /**
+     * Sets line3
+     * @param string $line3 ligne3 containing MRZ line number 3
+     * @return $this
+     */
+    public function setLine3($line3)
+    {
+        $this->container['line3'] = $line3;
 
         return $this;
     }
@@ -279,10 +311,10 @@ class GenericData implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

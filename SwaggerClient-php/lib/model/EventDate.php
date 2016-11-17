@@ -1,11 +1,11 @@
 <?php
 /**
- * ImageIndicator
+ * EventDate
  *
  * PHP version 5
  *
  * @category Class
- * @package  com.ariadnext.idcheckio.invoker
+ * @package  invoker
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,37 +39,36 @@
  * Do not edit the class manually.
  */
 
-namespace com.ariadnext.idcheckio.model;
+namespace model;
 
 use \ArrayAccess;
 
 /**
- * ImageIndicator Class Doc Comment
+ * EventDate Class Doc Comment
  *
  * @category    Class */
 /** 
- * @package     com.ariadnext.idcheckio.invoker
+ * @package     invoker
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ImageIndicator implements ArrayAccess
+class EventDate implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ImageIndicator';
+    protected static $swaggerModelName = 'event date';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'type' => 'string',
-        'status' => 'string',
-        'value' => 'string',
-        'description' => 'string'
+        'day' => 'int',
+        'month' => 'int',
+        'year' => 'int'
     );
 
     public static function swaggerTypes()
@@ -82,10 +81,9 @@ class ImageIndicator implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'type' => 'type',
-        'status' => 'status',
-        'value' => 'value',
-        'description' => 'description'
+        'day' => 'day',
+        'month' => 'month',
+        'year' => 'year'
     );
 
     public static function attributeMap()
@@ -98,10 +96,9 @@ class ImageIndicator implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'type' => 'setType',
-        'status' => 'setStatus',
-        'value' => 'setValue',
-        'description' => 'setDescription'
+        'day' => 'setDay',
+        'month' => 'setMonth',
+        'year' => 'setYear'
     );
 
     public static function setters()
@@ -114,10 +111,9 @@ class ImageIndicator implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'type' => 'getType',
-        'status' => 'getStatus',
-        'value' => 'getValue',
-        'description' => 'getDescription'
+        'day' => 'getDay',
+        'month' => 'getMonth',
+        'year' => 'getYear'
     );
 
     public static function getters()
@@ -125,28 +121,8 @@ class ImageIndicator implements ArrayAccess
         return self::$getters;
     }
 
-    const STATUS_NONE = 'NONE';
-    const STATUS_OK = 'OK';
-    const STATUS_INFO = 'INFO';
-    const STATUS_WARNING = 'WARNING';
-    const STATUS_ERROR = 'ERROR';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_NONE,
-            self::STATUS_OK,
-            self::STATUS_INFO,
-            self::STATUS_WARNING,
-            self::STATUS_ERROR,
-        ];
-    }
     
 
     /**
@@ -161,10 +137,9 @@ class ImageIndicator implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['day'] = isset($data['day']) ? $data['day'] : null;
+        $this->container['month'] = isset($data['month']) ? $data['month'] : null;
+        $this->container['year'] = isset($data['year']) ? $data['year'] : null;
     }
 
     /**
@@ -175,17 +150,6 @@ class ImageIndicator implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        if ($this->container['type'] === null) {
-            $invalid_properties[] = "'type' can't be null";
-        }
-        if ($this->container['status'] === null) {
-            $invalid_properties[] = "'status' can't be null";
-        }
-        $allowed_values = array("NONE", "OK", "INFO", "WARNING", "ERROR");
-        if (!in_array($this->container['status'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'status', must be one of #{allowed_values}.";
-        }
-
         return $invalid_properties;
     }
 
@@ -197,104 +161,69 @@ class ImageIndicator implements ArrayAccess
      */
     public function valid()
     {
-        if ($this->container['type'] === null) {
-            return false;
-        }
-        if ($this->container['status'] === null) {
-            return false;
-        }
-        $allowed_values = array("NONE", "OK", "INFO", "WARNING", "ERROR");
-        if (!in_array($this->container['status'], $allowed_values)) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets type
-     * @return string
+     * Gets day
+     * @return int
      */
-    public function getType()
+    public function getDay()
     {
-        return $this->container['type'];
+        return $this->container['day'];
     }
 
     /**
-     * Sets type
-     * @param string $type
+     * Sets day
+     * @param int $day day number of date
      * @return $this
      */
-    public function setType($type)
+    public function setDay($day)
     {
-        $this->container['type'] = $type;
+        $this->container['day'] = $day;
 
         return $this;
     }
 
     /**
-     * Gets status
-     * @return string
+     * Gets month
+     * @return int
      */
-    public function getStatus()
+    public function getMonth()
     {
-        return $this->container['status'];
+        return $this->container['month'];
     }
 
     /**
-     * Sets status
-     * @param string $status
+     * Sets month
+     * @param int $month month number of date
      * @return $this
      */
-    public function setStatus($status)
+    public function setMonth($month)
     {
-        $allowed_values = array('NONE', 'OK', 'INFO', 'WARNING', 'ERROR');
-        if (!in_array($status, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'status', must be one of 'NONE', 'OK', 'INFO', 'WARNING', 'ERROR'");
-        }
-        $this->container['status'] = $status;
+        $this->container['month'] = $month;
 
         return $this;
     }
 
     /**
-     * Gets value
-     * @return string
+     * Gets year
+     * @return int
      */
-    public function getValue()
+    public function getYear()
     {
-        return $this->container['value'];
+        return $this->container['year'];
     }
 
     /**
-     * Sets value
-     * @param string $value
+     * Sets year
+     * @param int $year year of date
      * @return $this
      */
-    public function setValue($value)
+    public function setYear($year)
     {
-        $this->container['value'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     * @param string $description
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
+        $this->container['year'] = $year;
 
         return $this;
     }
@@ -350,10 +279,10 @@ class ImageIndicator implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

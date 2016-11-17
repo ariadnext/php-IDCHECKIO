@@ -1,11 +1,11 @@
 <?php
 /**
- * ExtractedImage
+ * ImageIndicator
  *
  * PHP version 5
  *
  * @category Class
- * @package  com.ariadnext.idcheckio.invoker
+ * @package  invoker
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,27 +39,27 @@
  * Do not edit the class manually.
  */
 
-namespace com.ariadnext.idcheckio.model;
+namespace model;
 
 use \ArrayAccess;
 
 /**
- * ExtractedImage Class Doc Comment
+ * ImageIndicator Class Doc Comment
  *
  * @category    Class */
 /** 
- * @package     com.ariadnext.idcheckio.invoker
+ * @package     invoker
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ExtractedImage implements ArrayAccess
+class ImageIndicator implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ExtractedImage';
+    protected static $swaggerModelName = 'ImageIndicator';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -67,11 +67,9 @@ class ExtractedImage implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'type' => 'string',
-        'image_dl' => 'string[]',
-        'image_ir' => 'string[]',
-        'image_uv' => 'string[]',
-        'page' => 'int',
-        'indicators' => '\com.ariadnext.idcheckio.model\ImageIndicator[]'
+        'status' => 'string',
+        'value' => 'string',
+        'description' => 'string'
     );
 
     public static function swaggerTypes()
@@ -85,11 +83,9 @@ class ExtractedImage implements ArrayAccess
      */
     protected static $attributeMap = array(
         'type' => 'type',
-        'image_dl' => 'imageDL',
-        'image_ir' => 'imageIR',
-        'image_uv' => 'imageUV',
-        'page' => 'page',
-        'indicators' => 'indicators'
+        'status' => 'status',
+        'value' => 'value',
+        'description' => 'description'
     );
 
     public static function attributeMap()
@@ -103,11 +99,9 @@ class ExtractedImage implements ArrayAccess
      */
     protected static $setters = array(
         'type' => 'setType',
-        'image_dl' => 'setImageDl',
-        'image_ir' => 'setImageIr',
-        'image_uv' => 'setImageUv',
-        'page' => 'setPage',
-        'indicators' => 'setIndicators'
+        'status' => 'setStatus',
+        'value' => 'setValue',
+        'description' => 'setDescription'
     );
 
     public static function setters()
@@ -121,11 +115,9 @@ class ExtractedImage implements ArrayAccess
      */
     protected static $getters = array(
         'type' => 'getType',
-        'image_dl' => 'getImageDl',
-        'image_ir' => 'getImageIr',
-        'image_uv' => 'getImageUv',
-        'page' => 'getPage',
-        'indicators' => 'getIndicators'
+        'status' => 'getStatus',
+        'value' => 'getValue',
+        'description' => 'getDescription'
     );
 
     public static function getters()
@@ -133,11 +125,11 @@ class ExtractedImage implements ArrayAccess
         return self::$getters;
     }
 
-    const TYPE_RECTO = 'CROPPED_RECTO';
-    const TYPE_VERSO = 'CROPPED_VERSO';
-    const TYPE_FACE = 'CROPPED_FACE';
-    const TYPE_SIGNATURE = 'CROPPED_SIGNATURE';
-    const TYPE_EMITTER_SIGNATURE = 'CROPPED_EMITTER_SIGNATURE';
+    const STATUS_NONE = 'NONE';
+    const STATUS_OK = 'OK';
+    const STATUS_INFO = 'INFO';
+    const STATUS_WARNING = 'WARNING';
+    const STATUS_ERROR = 'ERROR';
     
 
     
@@ -145,14 +137,14 @@ class ExtractedImage implements ArrayAccess
      * Gets allowable values of the enum
      * @return string[]
      */
-    public function getTypeAllowableValues()
+    public function getStatusAllowableValues()
     {
         return [
-            self::TYPE_RECTO,
-            self::TYPE_VERSO,
-            self::TYPE_FACE,
-            self::TYPE_SIGNATURE,
-            self::TYPE_EMITTER_SIGNATURE,
+            self::STATUS_NONE,
+            self::STATUS_OK,
+            self::STATUS_INFO,
+            self::STATUS_WARNING,
+            self::STATUS_ERROR,
         ];
     }
     
@@ -170,11 +162,9 @@ class ExtractedImage implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['image_dl'] = isset($data['image_dl']) ? $data['image_dl'] : null;
-        $this->container['image_ir'] = isset($data['image_ir']) ? $data['image_ir'] : null;
-        $this->container['image_uv'] = isset($data['image_uv']) ? $data['image_uv'] : null;
-        $this->container['page'] = isset($data['page']) ? $data['page'] : null;
-        $this->container['indicators'] = isset($data['indicators']) ? $data['indicators'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
     }
 
     /**
@@ -188,9 +178,12 @@ class ExtractedImage implements ArrayAccess
         if ($this->container['type'] === null) {
             $invalid_properties[] = "'type' can't be null";
         }
-        $allowed_values = array("CROPPED_RECTO", "CROPPED_VERSO", "CROPPED_FACE", "CROPPED_SIGNATURE", "CROPPED_EMITTER_SIGNATURE");
-        if (!in_array($this->container['type'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'type', must be one of #{allowed_values}.";
+        if ($this->container['status'] === null) {
+            $invalid_properties[] = "'status' can't be null";
+        }
+        $allowed_values = array("NONE", "OK", "INFO", "WARNING", "ERROR");
+        if (!in_array($this->container['status'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'status', must be one of #{allowed_values}.";
         }
 
         return $invalid_properties;
@@ -207,8 +200,11 @@ class ExtractedImage implements ArrayAccess
         if ($this->container['type'] === null) {
             return false;
         }
-        $allowed_values = array("CROPPED_RECTO", "CROPPED_VERSO", "CROPPED_FACE", "CROPPED_SIGNATURE", "CROPPED_EMITTER_SIGNATURE");
-        if (!in_array($this->container['type'], $allowed_values)) {
+        if ($this->container['status'] === null) {
+            return false;
+        }
+        $allowed_values = array("NONE", "OK", "INFO", "WARNING", "ERROR");
+        if (!in_array($this->container['status'], $allowed_values)) {
             return false;
         }
         return true;
@@ -231,116 +227,74 @@ class ExtractedImage implements ArrayAccess
      */
     public function setType($type)
     {
-        $allowed_values = array('CROPPED_RECTO', 'CROPPED_VERSO', 'CROPPED_FACE', 'CROPPED_SIGNATURE', 'CROPPED_EMITTER_SIGNATURE');
-        if (!in_array($type, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'type', must be one of 'CROPPED_RECTO', 'CROPPED_VERSO', 'CROPPED_FACE', 'CROPPED_SIGNATURE', 'CROPPED_EMITTER_SIGNATURE'");
-        }
         $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets image_dl
-     * @return string[]
+     * Gets status
+     * @return string
      */
-    public function getImageDl()
+    public function getStatus()
     {
-        return $this->container['image_dl'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets image_dl
-     * @param string[] $image_dl
+     * Sets status
+     * @param string $status
      * @return $this
      */
-    public function setImageDl($image_dl)
+    public function setStatus($status)
     {
-        $this->container['image_dl'] = $image_dl;
+        $allowed_values = array('NONE', 'OK', 'INFO', 'WARNING', 'ERROR');
+        if (!in_array($status, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'status', must be one of 'NONE', 'OK', 'INFO', 'WARNING', 'ERROR'");
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }
 
     /**
-     * Gets image_ir
-     * @return string[]
+     * Gets value
+     * @return string
      */
-    public function getImageIr()
+    public function getValue()
     {
-        return $this->container['image_ir'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets image_ir
-     * @param string[] $image_ir
+     * Sets value
+     * @param string $value
      * @return $this
      */
-    public function setImageIr($image_ir)
+    public function setValue($value)
     {
-        $this->container['image_ir'] = $image_ir;
+        $this->container['value'] = $value;
 
         return $this;
     }
 
     /**
-     * Gets image_uv
-     * @return string[]
+     * Gets description
+     * @return string
      */
-    public function getImageUv()
+    public function getDescription()
     {
-        return $this->container['image_uv'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets image_uv
-     * @param string[] $image_uv
+     * Sets description
+     * @param string $description
      * @return $this
      */
-    public function setImageUv($image_uv)
+    public function setDescription($description)
     {
-        $this->container['image_uv'] = $image_uv;
-
-        return $this;
-    }
-
-    /**
-     * Gets page
-     * @return int
-     */
-    public function getPage()
-    {
-        return $this->container['page'];
-    }
-
-    /**
-     * Sets page
-     * @param int $page
-     * @return $this
-     */
-    public function setPage($page)
-    {
-        $this->container['page'] = $page;
-
-        return $this;
-    }
-
-    /**
-     * Gets indicators
-     * @return \com.ariadnext.idcheckio.model\ImageIndicator[]
-     */
-    public function getIndicators()
-    {
-        return $this->container['indicators'];
-    }
-
-    /**
-     * Sets indicators
-     * @param \com.ariadnext.idcheckio.model\ImageIndicator[] $indicators
-     * @return $this
-     */
-    public function setIndicators($indicators)
-    {
-        $this->container['indicators'] = $indicators;
+        $this->container['description'] = $description;
 
         return $this;
     }
@@ -396,10 +350,10 @@ class ExtractedImage implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

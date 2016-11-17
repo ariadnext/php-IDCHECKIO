@@ -1,11 +1,11 @@
 <?php
 /**
- * UserResponse
+ * MrzResponse
  *
  * PHP version 5
  *
  * @category Class
- * @package  com.ariadnext.idcheckio.invoker
+ * @package  invoker
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,34 +39,34 @@
  * Do not edit the class manually.
  */
 
-namespace com.ariadnext.idcheckio.model;
+namespace model;
 
 use \ArrayAccess;
 
 /**
- * UserResponse Class Doc Comment
+ * MrzResponse Class Doc Comment
  *
  * @category    Class */
 /** 
- * @package     com.ariadnext.idcheckio.invoker
+ * @package     invoker
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class UserResponse implements ArrayAccess
+class MrzResponse implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'UserResponse';
+    protected static $swaggerModelName = 'MrzResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'remaining_credits' => 'int'
+        'mrz' => '\model\Mrz'
     );
 
     public static function swaggerTypes()
@@ -79,7 +79,7 @@ class UserResponse implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'remaining_credits' => 'remainingCredits'
+        'mrz' => 'mrz'
     );
 
     public static function attributeMap()
@@ -92,7 +92,7 @@ class UserResponse implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'remaining_credits' => 'setRemainingCredits'
+        'mrz' => 'setMrz'
     );
 
     public static function setters()
@@ -105,7 +105,7 @@ class UserResponse implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'remaining_credits' => 'getRemainingCredits'
+        'mrz' => 'getMrz'
     );
 
     public static function getters()
@@ -129,7 +129,7 @@ class UserResponse implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['remaining_credits'] = isset($data['remaining_credits']) ? $data['remaining_credits'] : null;
+        $this->container['mrz'] = isset($data['mrz']) ? $data['mrz'] : null;
     }
 
     /**
@@ -156,22 +156,22 @@ class UserResponse implements ArrayAccess
 
 
     /**
-     * Gets remaining_credits
-     * @return int
+     * Gets mrz
+     * @return \model\Mrz
      */
-    public function getRemainingCredits()
+    public function getMrz()
     {
-        return $this->container['remaining_credits'];
+        return $this->container['mrz'];
     }
 
     /**
-     * Sets remaining_credits
-     * @param int $remaining_credits user remaining credit
+     * Sets mrz
+     * @param \model\Mrz $mrz
      * @return $this
      */
-    public function setRemainingCredits($remaining_credits)
+    public function setMrz($mrz)
     {
-        $this->container['remaining_credits'] = $remaining_credits;
+        $this->container['mrz'] = $mrz;
 
         return $this;
     }
@@ -227,10 +227,10 @@ class UserResponse implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

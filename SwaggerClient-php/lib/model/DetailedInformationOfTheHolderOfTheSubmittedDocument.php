@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  com.ariadnext.idcheckio.invoker
+ * @package  invoker
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace com.ariadnext.idcheckio.model;
+namespace model;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     com.ariadnext.idcheckio.invoker
+ * @package     invoker
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -72,10 +72,10 @@ class DetailedInformationOfTheHolderOfTheSubmittedDocument implements ArrayAcces
         'nationality' => 'string',
         'gender' => 'string',
         'address' => 'string',
-        'birth_date' => '\com.ariadnext.idcheckio.model\EventDate',
+        'birth_date' => '\model\EventDate',
         'birth_place' => 'string',
         'birth_dpt' => 'string',
-        'extra_infos' => '\com.ariadnext.idcheckio.model\GenericData[]'
+        'extra_infos' => '\model\GenericData[]'
     );
 
     public static function swaggerTypes()
@@ -328,7 +328,7 @@ class DetailedInformationOfTheHolderOfTheSubmittedDocument implements ArrayAcces
 
     /**
      * Gets birth_date
-     * @return \com.ariadnext.idcheckio.model\EventDate
+     * @return \model\EventDate
      */
     public function getBirthDate()
     {
@@ -337,7 +337,7 @@ class DetailedInformationOfTheHolderOfTheSubmittedDocument implements ArrayAcces
 
     /**
      * Sets birth_date
-     * @param \com.ariadnext.idcheckio.model\EventDate $birth_date
+     * @param \model\EventDate $birth_date
      * @return $this
      */
     public function setBirthDate($birth_date)
@@ -391,7 +391,7 @@ class DetailedInformationOfTheHolderOfTheSubmittedDocument implements ArrayAcces
 
     /**
      * Gets extra_infos
-     * @return \com.ariadnext.idcheckio.model\GenericData[]
+     * @return \model\GenericData[]
      */
     public function getExtraInfos()
     {
@@ -400,7 +400,7 @@ class DetailedInformationOfTheHolderOfTheSubmittedDocument implements ArrayAcces
 
     /**
      * Sets extra_infos
-     * @param \com.ariadnext.idcheckio.model\GenericData[] $extra_infos additional information
+     * @param \model\GenericData[] $extra_infos additional information
      * @return $this
      */
     public function setExtraInfos($extra_infos)
@@ -461,10 +461,10 @@ class DetailedInformationOfTheHolderOfTheSubmittedDocument implements ArrayAcces
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

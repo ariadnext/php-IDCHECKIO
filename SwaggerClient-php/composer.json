@@ -28,9 +28,9 @@
         "squizlabs/php_codesniffer": "~2.6"
     },
     "autoload": {
-        "psr-4": { "com.ariadnext.idcheckio.invoker\\" : "lib/" }
+        "psr-4": { "invoker\\" : "lib/" }
     },
     "autoload-dev": {
-        "psr-4": { "com.ariadnext.idcheckio.invoker\\" : "test/" }
+        "psr-4": { "invoker\\" : "test/" }
     }
 }

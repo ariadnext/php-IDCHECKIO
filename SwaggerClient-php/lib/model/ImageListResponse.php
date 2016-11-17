@@ -1,11 +1,11 @@
 <?php
 /**
- * MrzListResponse
+ * ImageListResponse
  *
  * PHP version 5
  *
  * @category Class
- * @package  com.ariadnext.idcheckio.invoker
+ * @package  invoker
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,34 +39,34 @@
  * Do not edit the class manually.
  */
 
-namespace com.ariadnext.idcheckio.model;
+namespace model;
 
 use \ArrayAccess;
 
 /**
- * MrzListResponse Class Doc Comment
+ * ImageListResponse Class Doc Comment
  *
  * @category    Class */
 /** 
- * @package     com.ariadnext.idcheckio.invoker
+ * @package     invoker
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class MrzListResponse implements ArrayAccess
+class ImageListResponse implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'MrzListResponse';
+    protected static $swaggerModelName = 'ImageListResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'mrz' => 'string[]'
+        'images' => '\model\Image[]'
     );
 
     public static function swaggerTypes()
@@ -79,7 +79,7 @@ class MrzListResponse implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'mrz' => 'mrz'
+        'images' => 'images'
     );
 
     public static function attributeMap()
@@ -92,7 +92,7 @@ class MrzListResponse implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'mrz' => 'setMrz'
+        'images' => 'setImages'
     );
 
     public static function setters()
@@ -105,7 +105,7 @@ class MrzListResponse implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'mrz' => 'getMrz'
+        'images' => 'getImages'
     );
 
     public static function getters()
@@ -129,7 +129,7 @@ class MrzListResponse implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['mrz'] = isset($data['mrz']) ? $data['mrz'] : null;
+        $this->container['images'] = isset($data['images']) ? $data['images'] : null;
     }
 
     /**
@@ -156,22 +156,22 @@ class MrzListResponse implements ArrayAccess
 
 
     /**
-     * Gets mrz
-     * @return string[]
+     * Gets images
+     * @return \model\Image[]
      */
-    public function getMrz()
+    public function getImages()
     {
-        return $this->container['mrz'];
+        return $this->container['images'];
     }
 
     /**
-     * Sets mrz
-     * @param string[] $mrz get mrz list object
+     * Sets images
+     * @param \model\Image[] $images get images list object
      * @return $this
      */
-    public function setMrz($mrz)
+    public function setImages($images)
     {
-        $this->container['mrz'] = $mrz;
+        $this->container['images'] = $images;
 
         return $this;
     }
@@ -227,10 +227,10 @@ class MrzListResponse implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

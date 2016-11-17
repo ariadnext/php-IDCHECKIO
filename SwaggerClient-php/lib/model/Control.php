@@ -1,11 +1,11 @@
 <?php
 /**
- * CheckSummaryOfTheSubmittedDocument
+ * Control
  *
  * PHP version 5
  *
  * @category Class
- * @package  com.ariadnext.idcheckio.invoker
+ * @package  invoker
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,34 +39,37 @@
  * Do not edit the class manually.
  */
 
-namespace com.ariadnext.idcheckio.model;
+namespace model;
 
 use \ArrayAccess;
 
 /**
- * CheckSummaryOfTheSubmittedDocument Class Doc Comment
+ * Control Class Doc Comment
  *
  * @category    Class */
 /** 
- * @package     com.ariadnext.idcheckio.invoker
+ * @package     invoker
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class CheckSummaryOfTheSubmittedDocument implements ArrayAccess
+class Control implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'Check summary of the submitted document';
+    protected static $swaggerModelName = 'Control';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'check' => '\com.ariadnext.idcheckio.model\Control[]'
+        'identifier' => 'string',
+        'title_msg' => 'string',
+        'result_msg' => 'string',
+        'result' => 'string'
     );
 
     public static function swaggerTypes()
@@ -79,7 +82,10 @@ class CheckSummaryOfTheSubmittedDocument implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'check' => 'check'
+        'identifier' => 'identifier',
+        'title_msg' => 'titleMsg',
+        'result_msg' => 'resultMsg',
+        'result' => 'result'
     );
 
     public static function attributeMap()
@@ -92,7 +98,10 @@ class CheckSummaryOfTheSubmittedDocument implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'check' => 'setCheck'
+        'identifier' => 'setIdentifier',
+        'title_msg' => 'setTitleMsg',
+        'result_msg' => 'setResultMsg',
+        'result' => 'setResult'
     );
 
     public static function setters()
@@ -105,7 +114,10 @@ class CheckSummaryOfTheSubmittedDocument implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'check' => 'getCheck'
+        'identifier' => 'getIdentifier',
+        'title_msg' => 'getTitleMsg',
+        'result_msg' => 'getResultMsg',
+        'result' => 'getResult'
     );
 
     public static function getters()
@@ -113,8 +125,26 @@ class CheckSummaryOfTheSubmittedDocument implements ArrayAccess
         return self::$getters;
     }
 
+    const RESULT_NONE = 'NONE';
+    const RESULT_OK = 'OK';
+    const RESULT_WARNING = 'WARNING';
+    const RESULT_ERROR = 'ERROR';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getResultAllowableValues()
+    {
+        return [
+            self::RESULT_NONE,
+            self::RESULT_OK,
+            self::RESULT_WARNING,
+            self::RESULT_ERROR,
+        ];
+    }
     
 
     /**
@@ -129,7 +159,10 @@ class CheckSummaryOfTheSubmittedDocument implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['check'] = isset($data['check']) ? $data['check'] : null;
+        $this->container['identifier'] = isset($data['identifier']) ? $data['identifier'] : null;
+        $this->container['title_msg'] = isset($data['title_msg']) ? $data['title_msg'] : null;
+        $this->container['result_msg'] = isset($data['result_msg']) ? $data['result_msg'] : null;
+        $this->container['result'] = isset($data['result']) ? $data['result'] : null;
     }
 
     /**
@@ -140,9 +173,11 @@ class CheckSummaryOfTheSubmittedDocument implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        if ($this->container['check'] === null) {
-            $invalid_properties[] = "'check' can't be null";
+        $allowed_values = array("NONE", "OK", "WARNING", "ERROR");
+        if (!in_array($this->container['result'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'result', must be one of #{allowed_values}.";
         }
+
         return $invalid_properties;
     }
 
@@ -154,7 +189,8 @@ class CheckSummaryOfTheSubmittedDocument implements ArrayAccess
      */
     public function valid()
     {
-        if ($this->container['check'] === null) {
+        $allowed_values = array("NONE", "OK", "WARNING", "ERROR");
+        if (!in_array($this->container['result'], $allowed_values)) {
             return false;
         }
         return true;
@@ -162,22 +198,89 @@ class CheckSummaryOfTheSubmittedDocument implements ArrayAccess
 
 
     /**
-     * Gets check
-     * @return \com.ariadnext.idcheckio.model\Control[]
+     * Gets identifier
+     * @return string
      */
-    public function getCheck()
+    public function getIdentifier()
     {
-        return $this->container['check'];
+        return $this->container['identifier'];
     }
 
     /**
-     * Sets check
-     * @param \com.ariadnext.idcheckio.model\Control[] $check check results
+     * Sets identifier
+     * @param string $identifier control identifier
      * @return $this
      */
-    public function setCheck($check)
+    public function setIdentifier($identifier)
     {
-        $this->container['check'] = $check;
+        $this->container['identifier'] = $identifier;
+
+        return $this;
+    }
+
+    /**
+     * Gets title_msg
+     * @return string
+     */
+    public function getTitleMsg()
+    {
+        return $this->container['title_msg'];
+    }
+
+    /**
+     * Sets title_msg
+     * @param string $title_msg title message
+     * @return $this
+     */
+    public function setTitleMsg($title_msg)
+    {
+        $this->container['title_msg'] = $title_msg;
+
+        return $this;
+    }
+
+    /**
+     * Gets result_msg
+     * @return string
+     */
+    public function getResultMsg()
+    {
+        return $this->container['result_msg'];
+    }
+
+    /**
+     * Sets result_msg
+     * @param string $result_msg result message
+     * @return $this
+     */
+    public function setResultMsg($result_msg)
+    {
+        $this->container['result_msg'] = $result_msg;
+
+        return $this;
+    }
+
+    /**
+     * Gets result
+     * @return string
+     */
+    public function getResult()
+    {
+        return $this->container['result'];
+    }
+
+    /**
+     * Sets result
+     * @param string $result result
+     * @return $this
+     */
+    public function setResult($result)
+    {
+        $allowed_values = array('NONE', 'OK', 'WARNING', 'ERROR');
+        if (!in_array($result, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'result', must be one of 'NONE', 'OK', 'WARNING', 'ERROR'");
+        }
+        $this->container['result'] = $result;
 
         return $this;
     }
@@ -233,10 +336,10 @@ class CheckSummaryOfTheSubmittedDocument implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

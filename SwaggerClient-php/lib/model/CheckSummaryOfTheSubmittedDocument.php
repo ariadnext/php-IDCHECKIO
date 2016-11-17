@@ -1,11 +1,11 @@
 <?php
 /**
- * MrzRequest
+ * CheckSummaryOfTheSubmittedDocument
  *
  * PHP version 5
  *
  * @category Class
- * @package  com.ariadnext.idcheckio.invoker
+ * @package  invoker
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,37 +39,34 @@
  * Do not edit the class manually.
  */
 
-namespace com.ariadnext.idcheckio.model;
+namespace model;
 
 use \ArrayAccess;
 
 /**
- * MrzRequest Class Doc Comment
+ * CheckSummaryOfTheSubmittedDocument Class Doc Comment
  *
  * @category    Class */
 /** 
- * @package     com.ariadnext.idcheckio.invoker
+ * @package     invoker
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class MrzRequest implements ArrayAccess
+class CheckSummaryOfTheSubmittedDocument implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'MrzRequest';
+    protected static $swaggerModelName = 'Check summary of the submitted document';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'api_version' => 'string',
-        'line1' => 'string',
-        'line2' => 'string',
-        'line3' => 'string'
+        'check' => '\model\Control[]'
     );
 
     public static function swaggerTypes()
@@ -82,10 +79,7 @@ class MrzRequest implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'api_version' => 'apiVersion',
-        'line1' => 'line1',
-        'line2' => 'line2',
-        'line3' => 'line3'
+        'check' => 'check'
     );
 
     public static function attributeMap()
@@ -98,10 +92,7 @@ class MrzRequest implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'api_version' => 'setApiVersion',
-        'line1' => 'setLine1',
-        'line2' => 'setLine2',
-        'line3' => 'setLine3'
+        'check' => 'setCheck'
     );
 
     public static function setters()
@@ -114,10 +105,7 @@ class MrzRequest implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'api_version' => 'getApiVersion',
-        'line1' => 'getLine1',
-        'line2' => 'getLine2',
-        'line3' => 'getLine3'
+        'check' => 'getCheck'
     );
 
     public static function getters()
@@ -141,10 +129,7 @@ class MrzRequest implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
-        $this->container['line1'] = isset($data['line1']) ? $data['line1'] : null;
-        $this->container['line2'] = isset($data['line2']) ? $data['line2'] : null;
-        $this->container['line3'] = isset($data['line3']) ? $data['line3'] : null;
+        $this->container['check'] = isset($data['check']) ? $data['check'] : null;
     }
 
     /**
@@ -155,8 +140,8 @@ class MrzRequest implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        if ($this->container['line1'] === null) {
-            $invalid_properties[] = "'line1' can't be null";
+        if ($this->container['check'] === null) {
+            $invalid_properties[] = "'check' can't be null";
         }
         return $invalid_properties;
     }
@@ -169,7 +154,7 @@ class MrzRequest implements ArrayAccess
      */
     public function valid()
     {
-        if ($this->container['line1'] === null) {
+        if ($this->container['check'] === null) {
             return false;
         }
         return true;
@@ -177,85 +162,22 @@ class MrzRequest implements ArrayAccess
 
 
     /**
-     * Gets api_version
-     * @return string
+     * Gets check
+     * @return \model\Control[]
      */
-    public function getApiVersion()
+    public function getCheck()
     {
-        return $this->container['api_version'];
+        return $this->container['check'];
     }
 
     /**
-     * Sets api_version
-     * @param string $api_version API version (for backward compatibility purpose)
+     * Sets check
+     * @param \model\Control[] $check check results
      * @return $this
      */
-    public function setApiVersion($api_version)
+    public function setCheck($check)
     {
-        $this->container['api_version'] = $api_version;
-
-        return $this;
-    }
-
-    /**
-     * Gets line1
-     * @return string
-     */
-    public function getLine1()
-    {
-        return $this->container['line1'];
-    }
-
-    /**
-     * Sets line1
-     * @param string $line1 ligne1 containing MRZ line number 1
-     * @return $this
-     */
-    public function setLine1($line1)
-    {
-        $this->container['line1'] = $line1;
-
-        return $this;
-    }
-
-    /**
-     * Gets line2
-     * @return string
-     */
-    public function getLine2()
-    {
-        return $this->container['line2'];
-    }
-
-    /**
-     * Sets line2
-     * @param string $line2 ligne2 containing MRZ line number 2
-     * @return $this
-     */
-    public function setLine2($line2)
-    {
-        $this->container['line2'] = $line2;
-
-        return $this;
-    }
-
-    /**
-     * Gets line3
-     * @return string
-     */
-    public function getLine3()
-    {
-        return $this->container['line3'];
-    }
-
-    /**
-     * Sets line3
-     * @param string $line3 ligne3 containing MRZ line number 3
-     * @return $this
-     */
-    public function setLine3($line3)
-    {
-        $this->container['line3'] = $line3;
+        $this->container['check'] = $check;
 
         return $this;
     }
@@ -311,10 +233,10 @@ class MrzRequest implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

@@ -1,11 +1,11 @@
 <?php
 /**
- * MrzResponse
+ * GenericData
  *
  * PHP version 5
  *
  * @category Class
- * @package  com.ariadnext.idcheckio.invoker
+ * @package  invoker
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,34 +39,36 @@
  * Do not edit the class manually.
  */
 
-namespace com.ariadnext.idcheckio.model;
+namespace model;
 
 use \ArrayAccess;
 
 /**
- * MrzResponse Class Doc Comment
+ * GenericData Class Doc Comment
  *
  * @category    Class */
 /** 
- * @package     com.ariadnext.idcheckio.invoker
+ * @package     invoker
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class MrzResponse implements ArrayAccess
+class GenericData implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'MrzResponse';
+    protected static $swaggerModelName = 'GenericData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'mrz' => '\com.ariadnext.idcheckio.model\Mrz'
+        'data_key' => 'string',
+        'data_value' => 'string',
+        'title' => 'string'
     );
 
     public static function swaggerTypes()
@@ -79,7 +81,9 @@ class MrzResponse implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'mrz' => 'mrz'
+        'data_key' => 'dataKey',
+        'data_value' => 'dataValue',
+        'title' => 'title'
     );
 
     public static function attributeMap()
@@ -92,7 +96,9 @@ class MrzResponse implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'mrz' => 'setMrz'
+        'data_key' => 'setDataKey',
+        'data_value' => 'setDataValue',
+        'title' => 'setTitle'
     );
 
     public static function setters()
@@ -105,7 +111,9 @@ class MrzResponse implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'mrz' => 'getMrz'
+        'data_key' => 'getDataKey',
+        'data_value' => 'getDataValue',
+        'title' => 'getTitle'
     );
 
     public static function getters()
@@ -129,7 +137,9 @@ class MrzResponse implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['mrz'] = isset($data['mrz']) ? $data['mrz'] : null;
+        $this->container['data_key'] = isset($data['data_key']) ? $data['data_key'] : null;
+        $this->container['data_value'] = isset($data['data_value']) ? $data['data_value'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
     }
 
     /**
@@ -156,22 +166,64 @@ class MrzResponse implements ArrayAccess
 
 
     /**
-     * Gets mrz
-     * @return \com.ariadnext.idcheckio.model\Mrz
+     * Gets data_key
+     * @return string
      */
-    public function getMrz()
+    public function getDataKey()
     {
-        return $this->container['mrz'];
+        return $this->container['data_key'];
     }
 
     /**
-     * Sets mrz
-     * @param \com.ariadnext.idcheckio.model\Mrz $mrz
+     * Sets data_key
+     * @param string $data_key data key
      * @return $this
      */
-    public function setMrz($mrz)
+    public function setDataKey($data_key)
     {
-        $this->container['mrz'] = $mrz;
+        $this->container['data_key'] = $data_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets data_value
+     * @return string
+     */
+    public function getDataValue()
+    {
+        return $this->container['data_value'];
+    }
+
+    /**
+     * Sets data_value
+     * @param string $data_value data value
+     * @return $this
+     */
+    public function setDataValue($data_value)
+    {
+        $this->container['data_value'] = $data_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets title
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     * @param string $title title
+     * @return $this
+     */
+    public function setTitle($title)
+    {
+        $this->container['title'] = $title;
 
         return $this;
     }
@@ -227,10 +279,10 @@ class MrzResponse implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

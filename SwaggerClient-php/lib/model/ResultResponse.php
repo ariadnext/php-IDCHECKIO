@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  com.ariadnext.idcheckio.invoker
+ * @package  invoker
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace com.ariadnext.idcheckio.model;
+namespace model;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     com.ariadnext.idcheckio.invoker
+ * @package     invoker
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -68,13 +68,13 @@ class ResultResponse implements ArrayAccess
     protected static $swaggerTypes = array(
         'uid' => 'string',
         'analysis_ref_uid' => 'string',
-        'check_report_summary' => '\com.ariadnext.idcheckio.model\CheckSummaryOfTheSubmittedDocument',
-        'document_classification' => '\com.ariadnext.idcheckio.model\ClassificationOfTheSubmittedDocument',
-        'document_detail' => '\com.ariadnext.idcheckio.model\DetailedInformationOfTheSubmittedDocument',
-        'holder_detail' => '\com.ariadnext.idcheckio.model\DetailedInformationOfTheHolderOfTheSubmittedDocument',
-        'mrz' => '\com.ariadnext.idcheckio.model\Mrz',
-        'controls' => '\com.ariadnext.idcheckio.model\ControlGroup[]',
-        'image' => '\com.ariadnext.idcheckio.model\ExtractedImage[]'
+        'check_report_summary' => '\model\CheckSummaryOfTheSubmittedDocument',
+        'document_classification' => '\model\ClassificationOfTheSubmittedDocument',
+        'document_detail' => '\model\DetailedInformationOfTheSubmittedDocument',
+        'holder_detail' => '\model\DetailedInformationOfTheHolderOfTheSubmittedDocument',
+        'mrz' => '\model\Mrz',
+        'controls' => '\model\ControlGroup[]',
+        'image' => '\model\ExtractedImage[]'
     );
 
     public static function swaggerTypes()
@@ -287,7 +287,7 @@ class ResultResponse implements ArrayAccess
 
     /**
      * Gets check_report_summary
-     * @return \com.ariadnext.idcheckio.model\CheckSummaryOfTheSubmittedDocument
+     * @return \model\CheckSummaryOfTheSubmittedDocument
      */
     public function getCheckReportSummary()
     {
@@ -296,7 +296,7 @@ class ResultResponse implements ArrayAccess
 
     /**
      * Sets check_report_summary
-     * @param \com.ariadnext.idcheckio.model\CheckSummaryOfTheSubmittedDocument $check_report_summary
+     * @param \model\CheckSummaryOfTheSubmittedDocument $check_report_summary
      * @return $this
      */
     public function setCheckReportSummary($check_report_summary)
@@ -308,7 +308,7 @@ class ResultResponse implements ArrayAccess
 
     /**
      * Gets document_classification
-     * @return \com.ariadnext.idcheckio.model\ClassificationOfTheSubmittedDocument
+     * @return \model\ClassificationOfTheSubmittedDocument
      */
     public function getDocumentClassification()
     {
@@ -317,7 +317,7 @@ class ResultResponse implements ArrayAccess
 
     /**
      * Sets document_classification
-     * @param \com.ariadnext.idcheckio.model\ClassificationOfTheSubmittedDocument $document_classification
+     * @param \model\ClassificationOfTheSubmittedDocument $document_classification
      * @return $this
      */
     public function setDocumentClassification($document_classification)
@@ -329,7 +329,7 @@ class ResultResponse implements ArrayAccess
 
     /**
      * Gets document_detail
-     * @return \com.ariadnext.idcheckio.model\DetailedInformationOfTheSubmittedDocument
+     * @return \model\DetailedInformationOfTheSubmittedDocument
      */
     public function getDocumentDetail()
     {
@@ -338,7 +338,7 @@ class ResultResponse implements ArrayAccess
 
     /**
      * Sets document_detail
-     * @param \com.ariadnext.idcheckio.model\DetailedInformationOfTheSubmittedDocument $document_detail
+     * @param \model\DetailedInformationOfTheSubmittedDocument $document_detail
      * @return $this
      */
     public function setDocumentDetail($document_detail)
@@ -350,7 +350,7 @@ class ResultResponse implements ArrayAccess
 
     /**
      * Gets holder_detail
-     * @return \com.ariadnext.idcheckio.model\DetailedInformationOfTheHolderOfTheSubmittedDocument
+     * @return \model\DetailedInformationOfTheHolderOfTheSubmittedDocument
      */
     public function getHolderDetail()
     {
@@ -359,7 +359,7 @@ class ResultResponse implements ArrayAccess
 
     /**
      * Sets holder_detail
-     * @param \com.ariadnext.idcheckio.model\DetailedInformationOfTheHolderOfTheSubmittedDocument $holder_detail
+     * @param \model\DetailedInformationOfTheHolderOfTheSubmittedDocument $holder_detail
      * @return $this
      */
     public function setHolderDetail($holder_detail)
@@ -371,7 +371,7 @@ class ResultResponse implements ArrayAccess
 
     /**
      * Gets mrz
-     * @return \com.ariadnext.idcheckio.model\Mrz
+     * @return \model\Mrz
      */
     public function getMrz()
     {
@@ -380,7 +380,7 @@ class ResultResponse implements ArrayAccess
 
     /**
      * Sets mrz
-     * @param \com.ariadnext.idcheckio.model\Mrz $mrz
+     * @param \model\Mrz $mrz
      * @return $this
      */
     public function setMrz($mrz)
@@ -392,7 +392,7 @@ class ResultResponse implements ArrayAccess
 
     /**
      * Gets controls
-     * @return \com.ariadnext.idcheckio.model\ControlGroup[]
+     * @return \model\ControlGroup[]
      */
     public function getControls()
     {
@@ -401,7 +401,7 @@ class ResultResponse implements ArrayAccess
 
     /**
      * Sets controls
-     * @param \com.ariadnext.idcheckio.model\ControlGroup[] $controls Performed controls on the submitted document
+     * @param \model\ControlGroup[] $controls Performed controls on the submitted document
      * @return $this
      */
     public function setControls($controls)
@@ -413,7 +413,7 @@ class ResultResponse implements ArrayAccess
 
     /**
      * Gets image
-     * @return \com.ariadnext.idcheckio.model\ExtractedImage[]
+     * @return \model\ExtractedImage[]
      */
     public function getImage()
     {
@@ -422,7 +422,7 @@ class ResultResponse implements ArrayAccess
 
     /**
      * Sets image
-     * @param \com.ariadnext.idcheckio.model\ExtractedImage[] $image Cropped image of the submitted document according request
+     * @param \model\ExtractedImage[] $image Cropped image of the submitted document according request
      * @return $this
      */
     public function setImage($image)
@@ -483,10 +483,10 @@ class ResultResponse implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\com.ariadnext.idcheckio.invoker\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\invoker\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

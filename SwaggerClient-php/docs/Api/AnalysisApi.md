@@ -1,4 +1,4 @@
-# com.ariadnext.idcheckio.invoker\AnalysisApi
+# invoker\AnalysisApi
 
 All URIs are relative to *https://localhost/rest*
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **getReport**
-> \com.ariadnext.idcheckio.model\ReportResponse getReport($analysis_ref_uid, $accept_language)
+> \model\ReportResponse getReport($analysis_ref_uid, $accept_language)
 
 HTTP GET report (demo)
 
@@ -24,10 +24,10 @@ Get a pdf report (base64 encoded) (demo)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-com.ariadnext.idcheckio.invoker\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-com.ariadnext.idcheckio.invoker\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+invoker\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+invoker\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
 
-$api_instance = new com.ariadnext.idcheckio.invoker\Api\AnalysisApi();
+$api_instance = new invoker\Api\AnalysisApi();
 $analysis_ref_uid = "analysis_ref_uid_example"; // string | Report analysisRefUid
 $accept_language = "accept_language_example"; // string | Accept language header
 
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.ariadnext.idcheckio.model\ReportResponse**](../Model/ReportResponse.md)
+[**\model\ReportResponse**](../Model/ReportResponse.md)
 
 ### Authorization
 
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getResult**
-> \com.ariadnext.idcheckio.model\ResultResponse getResult($analysis_ref_uid, $accept_language, $recto_image_cropped, $face_image_cropped, $signature_image_cropped)
+> \model\ResultResponse getResult($analysis_ref_uid, $accept_language, $recto_image_cropped, $face_image_cropped, $signature_image_cropped)
 
 HTTP GET result
 
@@ -75,10 +75,10 @@ Get result controls
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-com.ariadnext.idcheckio.invoker\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-com.ariadnext.idcheckio.invoker\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+invoker\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+invoker\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
 
-$api_instance = new com.ariadnext.idcheckio.invoker\Api\AnalysisApi();
+$api_instance = new invoker\Api\AnalysisApi();
 $analysis_ref_uid = "analysis_ref_uid_example"; // string | Result analysisRefUid
 $accept_language = "accept_language_example"; // string | Accept language header
 $recto_image_cropped = false; // bool | True to obtain recto image cropped if applicable
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.ariadnext.idcheckio.model\ResultResponse**](../Model/ResultResponse.md)
+[**\model\ResultResponse**](../Model/ResultResponse.md)
 
 ### Authorization
 
@@ -120,7 +120,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTask**
-> \com.ariadnext.idcheckio.model\TaskResponse getTask($analysis_ref_uid, $accept_language, $wait)
+> \model\TaskResponse getTask($analysis_ref_uid, $accept_language, $wait)
 
 HTTP GET task
 
@@ -132,10 +132,10 @@ Get task status
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-com.ariadnext.idcheckio.invoker\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-com.ariadnext.idcheckio.invoker\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+invoker\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+invoker\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
 
-$api_instance = new com.ariadnext.idcheckio.invoker\Api\AnalysisApi();
+$api_instance = new invoker\Api\AnalysisApi();
 $analysis_ref_uid = "analysis_ref_uid_example"; // string | Task analysisRefUid
 $accept_language = "accept_language_example"; // string | Accept language header
 $wait = 789; // int | specify a maximum wait time in milliseconds
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.ariadnext.idcheckio.model\TaskResponse**](../Model/TaskResponse.md)
+[**\model\TaskResponse**](../Model/TaskResponse.md)
 
 ### Authorization
 
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postImage**
-> \com.ariadnext.idcheckio.model\ResultResponse postImage($body, $async_mode, $accept_language)
+> \model\ResultResponse postImage($body, $async_mode, $accept_language)
 
 HTTP POST task image
 
@@ -185,11 +185,11 @@ POST an image check task
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-com.ariadnext.idcheckio.invoker\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-com.ariadnext.idcheckio.invoker\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+invoker\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+invoker\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
 
-$api_instance = new com.ariadnext.idcheckio.invoker\Api\AnalysisApi();
-$body = new \com.ariadnext.idcheckio.model\ImageRequest(); // \com.ariadnext.idcheckio.model\ImageRequest | Image request
+$api_instance = new invoker\Api\AnalysisApi();
+$body = new \model\ImageRequest(); // \model\ImageRequest | Image request
 $async_mode = true; // bool | true to activate asynchrone mode
 $accept_language = "accept_language_example"; // string | Accept language header
 
@@ -206,13 +206,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\com.ariadnext.idcheckio.model\ImageRequest**](../Model/\com.ariadnext.idcheckio.model\ImageRequest.md)| Image request |
+ **body** | [**\model\ImageRequest**](../Model/\model\ImageRequest.md)| Image request |
  **async_mode** | **bool**| true to activate asynchrone mode | [optional]
  **accept_language** | **string**| Accept language header | [optional]
 
 ### Return type
 
-[**\com.ariadnext.idcheckio.model\ResultResponse**](../Model/ResultResponse.md)
+[**\model\ResultResponse**](../Model/ResultResponse.md)
 
 ### Authorization
 
@@ -226,7 +226,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postMrz**
-> \com.ariadnext.idcheckio.model\ResultResponse postMrz($body, $async_mode, $accept_language)
+> \model\ResultResponse postMrz($body, $async_mode, $accept_language)
 
 HTTP POST task mrz
 
@@ -238,11 +238,11 @@ POST a mrz check task
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-com.ariadnext.idcheckio.invoker\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-com.ariadnext.idcheckio.invoker\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+invoker\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+invoker\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
 
-$api_instance = new com.ariadnext.idcheckio.invoker\Api\AnalysisApi();
-$body = new \com.ariadnext.idcheckio.model\MrzRequest(); // \com.ariadnext.idcheckio.model\MrzRequest | Mrz request
+$api_instance = new invoker\Api\AnalysisApi();
+$body = new \model\MrzRequest(); // \model\MrzRequest | Mrz request
 $async_mode = true; // bool | true to activate asynchrone mode
 $accept_language = "accept_language_example"; // string | Accept language header
 
@@ -259,13 +259,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\com.ariadnext.idcheckio.model\MrzRequest**](../Model/\com.ariadnext.idcheckio.model\MrzRequest.md)| Mrz request |
+ **body** | [**\model\MrzRequest**](../Model/\model\MrzRequest.md)| Mrz request |
  **async_mode** | **bool**| true to activate asynchrone mode | [optional]
  **accept_language** | **string**| Accept language header | [optional]
 
 ### Return type
 
-[**\com.ariadnext.idcheckio.model\ResultResponse**](../Model/ResultResponse.md)
+[**\model\ResultResponse**](../Model/ResultResponse.md)
 
 ### Authorization
 

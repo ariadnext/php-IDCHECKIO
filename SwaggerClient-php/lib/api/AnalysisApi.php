@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  com.ariadnext.idcheckio.invoker
+ * @package  invoker
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -38,18 +38,18 @@
  * Do not edit the class manually.
  */
 
-namespace com.ariadnext.idcheckio.api;
+namespace api;
 
-use \com.ariadnext.idcheckio.invoker\Configuration;
-use \com.ariadnext.idcheckio.invoker\ApiClient;
-use \com.ariadnext.idcheckio.invoker\ApiException;
-use \com.ariadnext.idcheckio.invoker\ObjectSerializer;
+use \invoker\Configuration;
+use \invoker\ApiClient;
+use \invoker\ApiException;
+use \invoker\ObjectSerializer;
 
 /**
  * AnalysisApi Class Doc Comment
  *
  * @category Class
- * @package  com.ariadnext.idcheckio.invoker
+ * @package  invoker
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -60,16 +60,16 @@ class AnalysisApi
     /**
      * API Client
      *
-     * @var \com.ariadnext.idcheckio.invoker\ApiClient instance of the ApiClient
+     * @var \invoker\ApiClient instance of the ApiClient
      */
     protected $apiClient;
 
     /**
      * Constructor
      *
-     * @param \com.ariadnext.idcheckio.invoker\ApiClient|null $apiClient The api client to use
+     * @param \invoker\ApiClient|null $apiClient The api client to use
      */
-    public function __construct(\com.ariadnext.idcheckio.invoker\ApiClient $apiClient = null)
+    public function __construct(\invoker\ApiClient $apiClient = null)
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
@@ -82,7 +82,7 @@ class AnalysisApi
     /**
      * Get API client
      *
-     * @return \com.ariadnext.idcheckio.invoker\ApiClient get the API client
+     * @return \invoker\ApiClient get the API client
      */
     public function getApiClient()
     {
@@ -92,11 +92,11 @@ class AnalysisApi
     /**
      * Set the API client
      *
-     * @param \com.ariadnext.idcheckio.invoker\ApiClient $apiClient set the API client
+     * @param \invoker\ApiClient $apiClient set the API client
      *
      * @return AnalysisApi
      */
-    public function setApiClient(\com.ariadnext.idcheckio.invoker\ApiClient $apiClient)
+    public function setApiClient(\invoker\ApiClient $apiClient)
     {
         $this->apiClient = $apiClient;
         return $this;
@@ -109,8 +109,8 @@ class AnalysisApi
      *
      * @param string $analysis_ref_uid Report analysisRefUid (required)
      * @param string $accept_language Accept language header (optional)
-     * @return \com.ariadnext.idcheckio.model\ReportResponse
-     * @throws \com.ariadnext.idcheckio.invoker\ApiException on non-2xx response
+     * @return \model\ReportResponse
+     * @throws \invoker\ApiException on non-2xx response
      */
     public function getReport($analysis_ref_uid, $accept_language = null)
     {
@@ -125,8 +125,8 @@ class AnalysisApi
      *
      * @param string $analysis_ref_uid Report analysisRefUid (required)
      * @param string $accept_language Accept language header (optional)
-     * @return Array of \com.ariadnext.idcheckio.model\ReportResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \com.ariadnext.idcheckio.invoker\ApiException on non-2xx response
+     * @return Array of \model\ReportResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \invoker\ApiException on non-2xx response
      */
     public function getReportWithHttpInfo($analysis_ref_uid, $accept_language = null)
     {
@@ -180,39 +180,39 @@ class AnalysisApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\com.ariadnext.idcheckio.model\ReportResponse',
+                '\model\ReportResponse',
                 '/v0/pdfreport/{analysisRefUid}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\com.ariadnext.idcheckio.model\ReportResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\model\ReportResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ReportResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ReportResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 403:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 404:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 503:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -231,8 +231,8 @@ class AnalysisApi
      * @param bool $recto_image_cropped True to obtain recto image cropped if applicable (optional, default to false)
      * @param bool $face_image_cropped True to obtain face image cropped if applicable (optional, default to false)
      * @param bool $signature_image_cropped True to obtain signature image cropped if applicable (optional, default to false)
-     * @return \com.ariadnext.idcheckio.model\ResultResponse
-     * @throws \com.ariadnext.idcheckio.invoker\ApiException on non-2xx response
+     * @return \model\ResultResponse
+     * @throws \invoker\ApiException on non-2xx response
      */
     public function getResult($analysis_ref_uid, $accept_language = null, $recto_image_cropped = null, $face_image_cropped = null, $signature_image_cropped = null)
     {
@@ -250,8 +250,8 @@ class AnalysisApi
      * @param bool $recto_image_cropped True to obtain recto image cropped if applicable (optional, default to false)
      * @param bool $face_image_cropped True to obtain face image cropped if applicable (optional, default to false)
      * @param bool $signature_image_cropped True to obtain signature image cropped if applicable (optional, default to false)
-     * @return Array of \com.ariadnext.idcheckio.model\ResultResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \com.ariadnext.idcheckio.invoker\ApiException on non-2xx response
+     * @return Array of \model\ResultResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \invoker\ApiException on non-2xx response
      */
     public function getResultWithHttpInfo($analysis_ref_uid, $accept_language = null, $recto_image_cropped = null, $face_image_cropped = null, $signature_image_cropped = null)
     {
@@ -317,39 +317,39 @@ class AnalysisApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\com.ariadnext.idcheckio.model\ResultResponse',
+                '\model\ResultResponse',
                 '/v0/result/{analysisRefUid}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\com.ariadnext.idcheckio.model\ResultResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\model\ResultResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ResultResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ResultResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 403:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 404:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 503:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -366,8 +366,8 @@ class AnalysisApi
      * @param string $analysis_ref_uid Task analysisRefUid (required)
      * @param string $accept_language Accept language header (optional)
      * @param int $wait specify a maximum wait time in milliseconds (optional)
-     * @return \com.ariadnext.idcheckio.model\TaskResponse
-     * @throws \com.ariadnext.idcheckio.invoker\ApiException on non-2xx response
+     * @return \model\TaskResponse
+     * @throws \invoker\ApiException on non-2xx response
      */
     public function getTask($analysis_ref_uid, $accept_language = null, $wait = null)
     {
@@ -383,8 +383,8 @@ class AnalysisApi
      * @param string $analysis_ref_uid Task analysisRefUid (required)
      * @param string $accept_language Accept language header (optional)
      * @param int $wait specify a maximum wait time in milliseconds (optional)
-     * @return Array of \com.ariadnext.idcheckio.model\TaskResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \com.ariadnext.idcheckio.invoker\ApiException on non-2xx response
+     * @return Array of \model\TaskResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \invoker\ApiException on non-2xx response
      */
     public function getTaskWithHttpInfo($analysis_ref_uid, $accept_language = null, $wait = null)
     {
@@ -442,43 +442,43 @@ class AnalysisApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\com.ariadnext.idcheckio.model\TaskResponse',
+                '\model\TaskResponse',
                 '/v0/task/{analysisRefUid}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\com.ariadnext.idcheckio.model\TaskResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\model\TaskResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\TaskResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\TaskResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 303:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\TaskResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\TaskResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 403:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 404:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 503:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -492,11 +492,11 @@ class AnalysisApi
      *
      * HTTP POST task image
      *
-     * @param \com.ariadnext.idcheckio.model\ImageRequest $body Image request (required)
+     * @param \model\ImageRequest $body Image request (required)
      * @param bool $async_mode true to activate asynchrone mode (optional)
      * @param string $accept_language Accept language header (optional)
-     * @return \com.ariadnext.idcheckio.model\ResultResponse
-     * @throws \com.ariadnext.idcheckio.invoker\ApiException on non-2xx response
+     * @return \model\ResultResponse
+     * @throws \invoker\ApiException on non-2xx response
      */
     public function postImage($body, $async_mode = null, $accept_language = null)
     {
@@ -509,11 +509,11 @@ class AnalysisApi
      *
      * HTTP POST task image
      *
-     * @param \com.ariadnext.idcheckio.model\ImageRequest $body Image request (required)
+     * @param \model\ImageRequest $body Image request (required)
      * @param bool $async_mode true to activate asynchrone mode (optional)
      * @param string $accept_language Accept language header (optional)
-     * @return Array of \com.ariadnext.idcheckio.model\ResultResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \com.ariadnext.idcheckio.invoker\ApiException on non-2xx response
+     * @return Array of \model\ResultResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \invoker\ApiException on non-2xx response
      */
     public function postImageWithHttpInfo($body, $async_mode = null, $accept_language = null)
     {
@@ -568,43 +568,43 @@ class AnalysisApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\com.ariadnext.idcheckio.model\ResultResponse',
+                '\model\ResultResponse',
                 '/v0/task/image'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\com.ariadnext.idcheckio.model\ResultResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\model\ResultResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ResultResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ResultResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 202:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\TaskResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\TaskResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 403:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 404:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 503:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -618,11 +618,11 @@ class AnalysisApi
      *
      * HTTP POST task mrz
      *
-     * @param \com.ariadnext.idcheckio.model\MrzRequest $body Mrz request (required)
+     * @param \model\MrzRequest $body Mrz request (required)
      * @param bool $async_mode true to activate asynchrone mode (optional)
      * @param string $accept_language Accept language header (optional)
-     * @return \com.ariadnext.idcheckio.model\ResultResponse
-     * @throws \com.ariadnext.idcheckio.invoker\ApiException on non-2xx response
+     * @return \model\ResultResponse
+     * @throws \invoker\ApiException on non-2xx response
      */
     public function postMrz($body, $async_mode = null, $accept_language = null)
     {
@@ -635,11 +635,11 @@ class AnalysisApi
      *
      * HTTP POST task mrz
      *
-     * @param \com.ariadnext.idcheckio.model\MrzRequest $body Mrz request (required)
+     * @param \model\MrzRequest $body Mrz request (required)
      * @param bool $async_mode true to activate asynchrone mode (optional)
      * @param string $accept_language Accept language header (optional)
-     * @return Array of \com.ariadnext.idcheckio.model\ResultResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \com.ariadnext.idcheckio.invoker\ApiException on non-2xx response
+     * @return Array of \model\ResultResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \invoker\ApiException on non-2xx response
      */
     public function postMrzWithHttpInfo($body, $async_mode = null, $accept_language = null)
     {
@@ -694,43 +694,43 @@ class AnalysisApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\com.ariadnext.idcheckio.model\ResultResponse',
+                '\model\ResultResponse',
                 '/v0/task/mrz'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\com.ariadnext.idcheckio.model\ResultResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\model\ResultResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ResultResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ResultResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 202:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\TaskResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\TaskResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 403:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 404:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 503:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\com.ariadnext.idcheckio.model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\model\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
