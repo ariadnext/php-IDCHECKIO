@@ -28,7 +28,7 @@
         "squizlabs/php_codesniffer": "~2.6"
     },
     "autoload": {
-        "psr-4": { "invoker\\" : "lib/" }
+        "psr-4": { "invoker\\" : "lib/", "api\\" : "lib/api/", "model\\" : "lib/model/" }
     },
     "autoload-dev": {
         "psr-4": { "invoker\\" : "test/" }
