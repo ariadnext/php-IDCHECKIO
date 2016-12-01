@@ -68,10 +68,10 @@ class TaskResponse implements ArrayAccess
     protected static $swaggerTypes = array(
         'uid' => 'string',
         'is_with_progress' => 'bool',
-        'accepted' => '\DateTime',
-        'started' => '\DateTime',
-        'ended' => '\DateTime',
-        'last_progress' => '\DateTime',
+        'accepted' => 'int',
+        'started' => 'int',
+        'ended' => 'int',
+        'last_progress' => 'int',
         'percentage' => 'int',
         'redirect_url' => 'string',
         'message' => 'string'
@@ -245,7 +245,7 @@ class TaskResponse implements ArrayAccess
 
     /**
      * Gets accepted
-     * @return \DateTime
+     * @return int
      */
     public function getAccepted()
     {
@@ -254,7 +254,7 @@ class TaskResponse implements ArrayAccess
 
     /**
      * Sets accepted
-     * @param \DateTime $accepted task accepted date
+     * @param int $accepted task accepted date
      * @return $this
      */
     public function setAccepted($accepted)
@@ -266,7 +266,7 @@ class TaskResponse implements ArrayAccess
 
     /**
      * Gets started
-     * @return \DateTime
+     * @return int
      */
     public function getStarted()
     {
@@ -275,7 +275,7 @@ class TaskResponse implements ArrayAccess
 
     /**
      * Sets started
-     * @param \DateTime $started task started date
+     * @param int $started task started date
      * @return $this
      */
     public function setStarted($started)
@@ -287,7 +287,7 @@ class TaskResponse implements ArrayAccess
 
     /**
      * Gets ended
-     * @return \DateTime
+     * @return int
      */
     public function getEnded()
     {
@@ -296,7 +296,7 @@ class TaskResponse implements ArrayAccess
 
     /**
      * Sets ended
-     * @param \DateTime $ended task ended date
+     * @param int $ended task ended date
      * @return $this
      */
     public function setEnded($ended)
@@ -308,7 +308,7 @@ class TaskResponse implements ArrayAccess
 
     /**
      * Gets last_progress
-     * @return \DateTime
+     * @return int
      */
     public function getLastProgress()
     {
@@ -317,7 +317,7 @@ class TaskResponse implements ArrayAccess
 
     /**
      * Sets last_progress
-     * @param \DateTime $last_progress last progress date
+     * @param int $last_progress last progress date
      * @return $this
      */
     public function setLastProgress($last_progress)
