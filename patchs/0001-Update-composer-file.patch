@@ -16,7 +16,7 @@ index 480860a..8d1df1c 100644
      },
      "autoload": {
 -        "psr-4": { "invoker\\" : "lib/" }
-+        "psr-4": { "invoker\\" : "lib/", "api\\" : "lib/", "model\\" : "lib/model/" }
++        "psr-4": { "invoker\\" : "lib/", "api\\" : "lib/api/", "model\\" : "lib/model/" }
      },
      "autoload-dev": {
          "psr-4": { "invoker\\" : "test/" }
