@@ -214,7 +214,7 @@ class ApiClient
             throw new ApiException('Method ' . $method . ' is not recognized.');
         }
         curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
+        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, false);
 
         // Set user agent
         curl_setopt($curl, CURLOPT_USERAGENT, $this->config->getUserAgent());
@@ -259,7 +259,7 @@ class ApiClient
             $exception = new ApiException($error_message, 0, null, null);
             $exception->setResponseObject($response_info);
             throw $exception;
-        } elseif ($response_info['http_code'] >= 200 && $response_info['http_code'] <= 299) {
+        } elseif (($response_info['http_code'] >= 200 && $response_info['http_code'] <= 299) || ($response_info['http_code'] == 303)) {
             // return raw body if response is a file
             if ($responseType == '\SplFileObject' || $responseType == 'string') {
                 return array($http_body, $response_info['http_code'], $http_header);
