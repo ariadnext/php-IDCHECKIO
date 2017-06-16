@@ -67,9 +67,9 @@ class ExtractedImage implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'type' => 'string',
-        'image_dl' => 'string[]',
-        'image_ir' => 'string[]',
-        'image_uv' => 'string[]',
+        'image_dl' => 'string',
+        'image_ir' => 'string',
+        'image_uv' => 'string',
         'page' => 'int',
         'indicators' => '\model\ImageIndicator[]'
     );
