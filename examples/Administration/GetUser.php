@@ -1,10 +1,8 @@
 <?php
 
-use \invoker\Configuration;
-use \invoker\ApiClient;
-use \invoker\ApiException;
-use \invoker\ObjectSerializer;
-use \api\AdministrationApi;
+namespace idcheckio;
+
+use \idcheckio\api\AdministrationApi;
 
 require_once(__DIR__ . '/vendor/autoload.php');
 
