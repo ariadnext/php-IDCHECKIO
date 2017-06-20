@@ -234,7 +234,7 @@ class ExtractedImage implements ArrayAccess
 
     /**
      * Gets image_dl
-     * @return string[]
+     * @return string
      */
     public function getImageDl()
     {
@@ -243,7 +243,7 @@ class ExtractedImage implements ArrayAccess
 
     /**
      * Sets image_dl
-     * @param string[] $image_dl
+     * @param string $image_dl
      * @return $this
      */
     public function setImageDl($image_dl)
@@ -255,7 +255,7 @@ class ExtractedImage implements ArrayAccess
 
     /**
      * Gets image_ir
-     * @return string[]
+     * @return string
      */
     public function getImageIr()
     {
@@ -264,7 +264,7 @@ class ExtractedImage implements ArrayAccess
 
     /**
      * Sets image_ir
-     * @param string[] $image_ir
+     * @param string $image_ir
      * @return $this
      */
     public function setImageIr($image_ir)
@@ -276,7 +276,7 @@ class ExtractedImage implements ArrayAccess
 
     /**
      * Gets image_uv
-     * @return string[]
+     * @return string
      */
     public function getImageUv()
     {
@@ -285,7 +285,7 @@ class ExtractedImage implements ArrayAccess
 
     /**
      * Sets image_uv
-     * @param string[] $image_uv
+     * @param string $image_uv
      * @return $this
      */
     public function setImageUv($image_uv)
