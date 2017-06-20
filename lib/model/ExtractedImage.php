@@ -55,9 +55,9 @@ class ExtractedImage implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'type' => 'string',
-        'image_dl' => 'string[]',
-        'image_ir' => 'string[]',
-        'image_uv' => 'string[]',
+        'image_dl' => 'string',
+        'image_ir' => 'string',
+        'image_uv' => 'string',
         'page' => 'int',
         'indicators' => '\idcheckio\model\ImageIndicator[]'
     ];
